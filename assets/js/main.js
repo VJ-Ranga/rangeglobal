@@ -71,4 +71,17 @@
       if(note) note.style.display = 'flex';
     });
   });
+
+  // floating back-to-top button
+  var topBtn = document.querySelector('.top-float');
+  if(topBtn){
+    function toggleTopBtn(){
+      topBtn.classList.toggle('show', window.scrollY > 420);
+    }
+    window.addEventListener('scroll', toggleTopBtn, { passive:true });
+    toggleTopBtn();
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  }
 })();
