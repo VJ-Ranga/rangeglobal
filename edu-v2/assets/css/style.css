@@ -114,13 +114,12 @@ strong,b{ font-weight:600; color:var(--ink); }
   border-bottom:1px solid var(--line); backdrop-filter:blur(10px);
 }
 .nav .container{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.brand-lockup{ display:flex; align-items:center; gap:16px; flex:0 0 auto; }
-.brand-lockup .mark{ height:68px; width:auto; }
-.brand-lockup .divider{ width:1.5px; height:52px; background:var(--line); }
-.brand-lockup .word-block{ display:flex; flex-direction:column; gap:2px; }
-.brand-lockup .wordmark{ height:34px; width:auto; }
-.brand-lockup .sub{ font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--mid-gray); }
-@media (max-width:560px){ .brand-lockup .mark{ height:46px; } .brand-lockup .wordmark{ height:22px; } .brand-lockup .divider{ height:34px; } .brand-lockup .sub{ font-size:9px; letter-spacing:.08em; } }
+.brand-lockup{ display:flex; align-items:center; gap:14px; flex:0 0 auto; }
+.brand-lockup .mark, .brand-lockup .wordmark{ height:58px; width:auto; object-fit:contain; }
+.brand-lockup .divider, .brand-lockup .sub{ display:none; }
+.brand-lockup .word-block{ display:flex; align-items:center; }
+.hero-brand .mark, .hero-brand .wordmark{ height:82px; }
+@media (max-width:560px){ .brand-lockup{ gap:10px; } .brand-lockup .mark, .brand-lockup .wordmark{ height:40px; } .hero-brand .mark, .hero-brand .wordmark{ height:54px; } }
 
 .nav-links{ display:flex; align-items:center; gap:38px; }
 .nav-links a{
@@ -155,6 +154,11 @@ body{ padding-top:var(--header-h); }
   position:absolute; pointer-events:none; z-index:0; opacity:.06; filter:grayscale(1) brightness(0);
 }
 .mark-watermark.on-dark{ opacity:.14; filter:brightness(0) invert(1); }
+.hero-side-mark{ position:absolute; z-index:1; width:86px; opacity:.46; filter:brightness(0) invert(1); pointer-events:none; }
+.hero-side-mark.left{ left:34px; top:28%; animation:brand-float-up 5.5s ease-in-out infinite; }
+.hero-side-mark.right{ right:34px; bottom:18%; animation:brand-float-down 6.2s ease-in-out infinite; }
+@keyframes brand-float-up{ 0%,100%{ transform:translateY(0) rotate(-4deg); } 50%{ transform:translateY(-18px) rotate(3deg); } }
+@keyframes brand-float-down{ 0%,100%{ transform:translateY(0) rotate(5deg); } 50%{ transform:translateY(18px) rotate(-2deg); } }
 .page-hero{
   background:var(--ink); color:#fff; padding:88px 0 72px; position:relative; overflow:hidden;
 }
@@ -200,16 +204,16 @@ section{ padding:112px 0; }
 .image-card::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,10,10,.02), rgba(10,10,10,.32)); }
 .image-card > svg, .image-card > .ph-label{ display:none; }
 .image-card.about-real{ background-image:url('https://rangeglobal.edu.lk/assets/image/front_page/about.jpg'); }
-.image-card.office-real{ background-image:url('https://rangeglobal.edu.lk/assets/image/slider/logo.jpg'); }
-.image-card.office{ background-image:url('https://rangeglobal.edu.lk/assets/image/slider/logo.jpg'); }
-.image-card.students-real{ background-image:url('https://rangeglobal.edu.lk/assets/image/slider/slider-1.png'); }
-.image-card.strategy-real{ background-image:url('https://rangeglobal.edu.lk/assets/image/slider/slider-3.png'); }
+.image-card.office-real{ background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80'); }
+.image-card.office{ background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80'); }
+.image-card.students-real{ background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80'); }
+.image-card.strategy-real{ background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80'); }
 .story-photo{ aspect-ratio:4/3; background-size:cover; background-position:center; border-radius:var(--radius); margin-bottom:20px; position:relative; overflow:hidden; }
 .story-photo::after{ content:"Story slot"; position:absolute; left:14px; bottom:14px; background:#fff; color:var(--mid-gray); font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:6px 10px; border-radius:100px; }
-.story-photo.malta{ background-image:url('https://rangeglobal.edu.lk/assets/image/slider/slider-1.png'); }
+.story-photo.malta{ background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80'); }
 .story-photo.nz{ background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80'); }
 .story-photo.malaysia{ background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80'); }
-.story-photo.europe{ background-image:url('https://rangeglobal.edu.lk/assets/image/front_page/about.jpg'); }
+.story-photo.europe{ background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80'); }
 .story-photo.canada{ background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80'); }
 .story-photo.uk{ background-image:url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80'); }
 
@@ -231,8 +235,7 @@ footer{ background:var(--ink); color:rgba(255,255,255,.62); padding:80px 0 0; po
 footer .mark-watermark{ right:-4%; top:-10%; width:30%; max-width:280px; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:48px; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.12); position:relative; z-index:1; }
 .footer-logo-plate{ display:inline-flex; align-items:center; gap:12px; background:#fff; border-radius:100px; padding:12px 20px 12px 14px; margin-bottom:22px; }
-.footer-logo-plate img.mark{ height:30px; }
-.footer-logo-plate img.wordmark{ height:16px; }
+.footer-logo-plate img.mark, .footer-logo-plate img.wordmark{ height:34px; width:auto; object-fit:contain; }
 .footer-brand p{ font-size:14px; max-width:280px; margin-bottom:22px; }
 .footer-social{ display:flex; gap:10px; }
 .footer-social a{ width:38px; height:38px; border:1px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; border-radius:50%; }
@@ -284,7 +287,7 @@ footer .mark-watermark{ right:-4%; top:-10%; width:30%; max-width:280px; }
 .dest-canada{ background-image:url('https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=900&q=80'); }
 .dest-usa{ background-image:url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80'); }
 .dest-uk{ background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80'); }
-.dest-europe{ background-image:url('https://rangeglobal.edu.lk/assets/image/front_page/about.jpg'); }
+.dest-europe{ background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80'); }
 .dest-australia{ background-image:url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=900&q=80'); }
 .dest-new-zealand{ background-image:url('https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=900&q=80'); }
 .dest-cyprus{ background-image:url('https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=900&q=80'); }
@@ -310,4 +313,5 @@ footer .mark-watermark{ right:-4%; top:-10%; width:30%; max-width:280px; }
   [style*="grid-template-columns:70px 1fr auto"] > svg{ display:none; }
   .top-float{ right:18px; bottom:86px; }
   .wa-float{ right:18px; bottom:18px; }
+  .hero-side-mark{ display:none; }
 }
