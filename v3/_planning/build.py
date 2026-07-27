@@ -190,10 +190,10 @@ def cta(heading, body, label, href, second=None):
 NAV = [
     ("home",            "Home",         "index.html",        None),
     ("about",           "About Us",     "about.html",        None),
-    ("students",        "Study Abroad", "destinations.html",
-        [("destinations",    "Destinations",    "destinations.html"),
+    ("students",        "Study Abroad", "how-it-works.html",
+        [("how-it-works",    "How It Works",    "how-it-works.html"),
+         ("destinations",    "Destinations",    "destinations.html"),
          ("universities",    "Universities",    "universities.html"),
-         ("how-it-works",    "How It Works",    "how-it-works.html"),
          ("success-stories", "Success Stories", "success-stories.html")]),
     ("resources",       "Resources",    "resources.html",    None),
 ]
