@@ -178,20 +178,20 @@ def cta(heading, body, label, href, second=None):
 '''
 
 # ---------------------------------------------------------------- nav / shell
-# Labels name what the visitor wants to do, not who they are. "For Universities"
-# was ambiguous — most visitors read it as "a list of universities" rather than
-# "the section addressed to universities", which is the opposite of its content.
-# The institution list now sits under Study Abroad (a student question); the B2B
-# pitch is "Partner With Us". Five top-level items + CTA.
+# Labels name what the visitor wants to do, not who they are.
+#
+# There is no "Partner With Us" item: the source document describes WHO Range
+# Global is connected to, but never invites institutions to apply for a
+# partnership. That content is credibility for students, not lead generation,
+# so it sits under Study Abroad rather than taking a top-level slot.
 NAV = [
     ("home",     "Home",              "index.html",                  None),
     ("about",    "About Us",          "about.html",                  None),
     ("students", "Study Abroad",      "student-services.html",
         [("student-services", "Student Services", "student-services.html"),
          ("study-destinations", "Study Destinations", "study-destinations.html"),
-         ("universities", "Partner Universities", "universities.html"),
+         ("partners", "University Partnerships", "university-partnerships.html"),
          ("success-stories", "Success Stories", "success-stories.html")]),
-    ("partners", "Partner With Us",   "university-partnerships.html", None),
     ("resources","Resources",         "resources.html",              None),
 ]
 # "Contact" is deliberately not a nav item — the header CTA button points at the
@@ -245,8 +245,7 @@ def build_mobile(active, depth):
 
 FOOT_EXPLORE = [("About Us", "about.html"), ("Student Services", "student-services.html"),
                 ("Study Destinations", "study-destinations.html"), ("Success Stories", "success-stories.html")]
-FOOT_PARTNER = [("Partner Universities", "universities.html"),
-                ("Partner With Us", "university-partnerships.html"),
+FOOT_PARTNER = [("University Partnerships", "university-partnerships.html"),
                 ("Resources", "resources.html"), ("Contact", "contact.html")]
 
 
@@ -269,7 +268,7 @@ def shell(slug, active, title, desc, main, depth):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{a}assets/css/style.css?v=4">
+<link rel="stylesheet" href="{a}assets/css/style.css?v=5">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -359,7 +358,7 @@ def shell(slug, active, title, desc, main, depth):
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 
-<script src="{a}assets/js/main.js?v=4"></script>
+<script src="{a}assets/js/main.js?v=5"></script>
 </body>
 </html>
 '''
@@ -409,7 +408,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
         <p class="hero-copy">Education opens doors to opportunities, cultures, careers, and lifelong connections. We help students confidently begin their international education journey while building meaningful partnerships with universities across the world.</p>
         <div class="hero-actions">
           <a href="pages/student-services.html" class="btn btn-primary">Start Your Journey {ARROW}</a>
-          <a href="pages/university-partnerships.html" class="btn btn-outline-light">Partner With Us</a>
+          <a href="pages/university-partnerships.html" class="btn btn-outline-light">University Partnerships</a>
         </div>
       </div>
       <div class="hero-scroll">Scroll
@@ -456,7 +455,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
             <li>Direct Collaborations</li><li>International Recruitment</li><li>Market Representation</li>
             <li>Student Outreach</li><li>Partnership Development</li>
           </ul>
-          <a href="pages/university-partnerships.html" class="btn btn-outline btn-sm" style="margin-top:26px;">Partner With Us {ARROW}</a>
+          <a href="pages/university-partnerships.html" class="btn btn-outline btn-sm" style="margin-top:26px;">University Partnerships {ARROW}</a>
         </div>
         <div>
           <div class="aud-head">
@@ -509,11 +508,11 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
     <div class="container">
       <div class="section-head-row reveal">
         <div class="section-head">
-          <div class="eyebrow on-dark">Partner Universities</div>
+          <div class="eyebrow on-dark">University Partnerships</div>
           <h2 class="h-lg">Eleven institutions across four countries</h2>
           <p>Direct university collaborations you can apply to through Range Global, alongside a wider network reached through authorised recruitment partnerships.</p>
         </div>
-        <a href="pages/universities.html" class="btn btn-outline-light">View Universities {ARROW}</a>
+        <a href="pages/university-partnerships.html" class="btn btn-outline-light">View Partnerships {ARROW}</a>
       </div>
       <div class="grid g-4 stagger">
         <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="7">0</div><div class="stat-label on-dark">Malta</div></div>
@@ -684,21 +683,23 @@ PAGES["study-destinations"] = dict(slug="study-destinations", active="study-dest
 # ---------------------------------------------------------------- UNIVERSITY PARTNERSHIPS
 # Merged: this page now owns the full institution list. The former separate
 # universities.html carried no unique content (37% byte-identical) and was cut.
-# ---------------------------------------------------------------- UNIVERSITIES
-# Student-facing: "which universities can I apply to?". Owns the institution
-# list. The B2B page links here rather than repeating it.
-PAGES["universities"] = dict(slug="universities", active="universities", depth=1,
-  title="Partner Universities — Range Global Education",
-  desc="The eleven institutions across Malta, New Zealand, Georgia and Malaysia that you can apply to through Range Global Education.",
-  main=page_hero("Partner Universities", "Institutions You Can Apply To",
+# ---------------------------------------------------------------- UNIVERSITY PARTNERSHIPS
+# One page, named as the source document names it. The document describes who
+# Range Global is connected to; it never invites institutions to apply for a
+# partnership. So this is credibility content for students, not a B2B pitch —
+# no "for institutions" hero, no partnership lead-gen CTA.
+PAGES["university-partnerships"] = dict(slug="university-partnerships", active="partners", depth=1,
+  title="University Partnerships — Range Global Education",
+  desc="The universities Range Global Education works with directly across Malta, New Zealand, Georgia and Malaysia, plus a wider network reached through authorised recruitment partnerships.",
+  main=page_hero("University Partnerships", "Institutions You Can Apply To",
     "We establish direct partnerships with universities while also providing access to a broader network of internationally recognised institutions through authorised recruitment partnerships.",
-    [("Home", "../index.html"), ("Study Abroad", None), ("Partner Universities", None)]) + f'''
+    [("Home", "../index.html"), ("Study Abroad", None), ("University Partnerships", None)]) + f'''
   <section>
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">Direct Collaborations</div>
         <h2 class="h-lg">Eleven institutions across four countries</h2>
-        <p>These are the institutions we work with directly, which means clear institutional communication throughout your application.</p>
+        <p>We work to establish direct partnerships with universities, enabling clear institutional communication and effective student recruitment.</p>
       </div>
       <div class="grid g-2 stagger">
 {country_blocks()}
@@ -711,16 +712,15 @@ PAGES["universities"] = dict(slug="universities", active="universities", depth=1
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <div class="eyebrow">Beyond Direct Collaborations</div>
+          <div class="eyebrow">Global Recruitment Partnerships</div>
           <h2 class="h-lg">A wider network of recognised institutions</h2>
-          <p class="lead" style="margin-top:18px;">Alongside our direct university collaborations, we have access to a broader international network of higher education institutions through authorised global recruitment partnerships.</p>
+          <p class="lead" style="margin-top:18px;">Alongside our direct university collaborations, Range Global Education has access to a broader international network of higher education institutions through authorised global recruitment partnerships.</p>
           <div class="chip-row" style="margin-top:24px;">
 {chips(RECRUIT)}
           </div>
+          <p style="margin-top:24px; font-size:15.5px;">We continue to expand our institutional partnerships to create broader academic opportunities for international students.</p>
         </div>
-        <div class="reveal">
-          <div class="image-card img-campus" style="width:100%; aspect-ratio:4/3;"></div>
-        </div>
+        <div class="reveal"><div class="image-card img-campus" style="width:100%; aspect-ratio:4/3;"></div></div>
       </div>
     </div>
   </section>
@@ -729,12 +729,12 @@ PAGES["universities"] = dict(slug="universities", active="universities", depth=1
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <div class="eyebrow on-dark">How We Match You</div>
+          <div class="eyebrow on-dark">What This Means For You</div>
           <h2 class="h-lg">Guided towards the right institution</h2>
           <p style="margin-top:18px; font-size:16px;">Where appropriate, students are guided towards institutions that best align with their academic background, career objectives, and preferred study destination.</p>
         </div>
         <div class="reveal">
-          <p style="font-size:15.5px;">Our discussions begin with your academic objectives, preferred study destination, and long-term aspirations before exploring programme options.</p>
+          <p style="font-size:15.5px;">Working directly with institutions means clear communication throughout your application, and our engagement continues beyond the offer letter through visa preparation and pre-departure arrangements.</p>
           <a href="student-services.html" class="btn btn-outline-light" style="margin-top:26px;">See the application journey {ARROW}</a>
         </div>
       </div>
@@ -743,72 +743,6 @@ PAGES["universities"] = dict(slug="universities", active="universities", depth=1
 ''' + cta("Found an institution that fits?",
           "Talk to us about entry requirements, intakes and the application process.",
           "Start Your Journey", "contact.html"))
-
-# ---------------------------------------------------------------- PARTNER WITH US
-# Institution-facing B2B. Deliberately does NOT repeat the institution list —
-# it shows counts and links to universities.html.
-PAGES["university-partnerships"] = dict(slug="university-partnerships", active="partners", depth=1,
-  title="Partner With Us — Range Global Education",
-  desc="Range Global Education builds sustainable recruitment partnerships with universities, supported by transparent communication and structured academic engagement.",
-  main=page_hero("For Institutions", "Partnership Beyond Transactions",
-    "For universities, we focus on building sustainable recruitment partnerships supported by transparent communication and structured academic engagement.",
-    [("Home", "../index.html"), ("Partner With Us", None)]) + f'''
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">What We Do For Institutions</div>
-        <h2 class="h-lg">Five ways we work with universities</h2>
-        <p>Every university has its own admission framework. Our role is to connect it with capable applicants through a structured and well-coordinated process.</p>
-      </div>
-      <div class="grid g-3 stagger">
-        <div class="card card-accent num-card"><span class="num">01</span><h3>Direct Collaborations</h3><p>Direct institutional partnerships supporting clear, unmediated communication.</p></div>
-        <div class="card card-accent num-card"><span class="num">02</span><h3>International Recruitment</h3><p>Sustainable recruitment supported by structured academic engagement.</p></div>
-        <div class="card card-accent num-card"><span class="num">03</span><h3>Market Representation</h3><p>Representation of your institution within our operating markets.</p></div>
-        <div class="card card-accent num-card"><span class="num">04</span><h3>Student Outreach</h3><p>Outreach that connects your programmes with capable applicants.</p></div>
-        <div class="card card-accent num-card"><span class="num">05</span><h3>Partnership Development</h3><p>Ongoing development of long-term institutional relationships.</p></div>
-        <div class="card card-accent num-card"><span class="num">06</span><h3>Coordinated Admissions</h3><p>We maintain communication with both institutions and applicants, supporting information exchange and timely coordination.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-dark">
-    <div class="container">
-      <div class="section-head-row reveal">
-        <div class="section-head">
-          <div class="eyebrow on-dark">Current Network</div>
-          <h2 class="h-lg">Eleven direct collaborations, five recruitment markets</h2>
-          <p>We establish direct partnerships with universities while also providing access to a broader network of internationally recognised institutions through authorised recruitment partnerships.</p>
-        </div>
-        <a href="universities.html" class="btn btn-outline-light">See the institutions {ARROW}</a>
-      </div>
-      <div class="grid g-4 stagger">
-        <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="7">0</div><div class="stat-label on-dark">Malta</div></div>
-        <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="2">0</div><div class="stat-label on-dark">New Zealand</div></div>
-        <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="1">0</div><div class="stat-label on-dark">Georgia</div></div>
-        <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="1">0</div><div class="stat-label on-dark">Malaysia</div></div>
-      </div>
-      <div class="chip-row reveal" style="margin-top:28px;">
-{chips(RECRUIT)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section-alt">
-    <div class="container">
-      <div class="split">
-        <div class="reveal">
-          <div class="eyebrow">Partnership Development</div>
-          <h2 class="h-lg">We continue to expand our institutional partnerships</h2>
-          <p class="lead" style="margin-top:18px;">Creating broader academic opportunities for international students. Our engagement extends beyond the offer letter — we maintain ongoing relationships with our university partners.</p>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:26px;">Talk to our partnerships team {ARROW}</a>
-        </div>
-        <div class="reveal"><div class="image-card img-meeting" style="width:100%; aspect-ratio:4/3;"></div></div>
-      </div>
-    </div>
-  </section>
-''' + cta("Looking to recruit from Sri Lanka and beyond?",
-          "We maintain communication with both institutions and applicants throughout the admission process.",
-          "Contact Us", "contact.html"))
 
 # ---------------------------------------------------------------- SUCCESS STORIES
 testi_cards = "\n".join(
@@ -964,7 +898,7 @@ PAGES["contact"] = dict(slug="contact", active="contact", depth=1,
       <div class="grid g-3 stagger">
         <a class="card card-accent" href="student-services.html"><h3>Student Services</h3><p>The complete ten-stage support journey from Discover to Begin Your Studies.</p></a>
         <a class="card card-accent" href="study-destinations.html"><h3>Study Destinations</h3><p>Eight approved destinations you can compare through a single point of contact.</p></a>
-        <a class="card card-accent" href="universities.html"><h3>Partner Universities</h3><p>Eleven institutions across Malta, New Zealand, Georgia and Malaysia.</p></a>
+        <a class="card card-accent" href="university-partnerships.html"><h3>University Partnerships</h3><p>Eleven institutions across Malta, New Zealand, Georgia and Malaysia.</p></a>
       </div>
     </div>
   </section>

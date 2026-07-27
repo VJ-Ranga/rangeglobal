@@ -93,8 +93,7 @@ is audience-led, mirroring the split the source document itself makes between
 ```
 Home
 About Us
-Study Abroad  ▾   Student Services · Study Destinations · Partner Universities · Success Stories
-Partner With Us   → the institution-facing partnership page
+Study Abroad  ▾   Student Services · Study Destinations · University Partnerships · Success Stories
 Resources
 ```
 
@@ -196,3 +195,52 @@ into the institution-facing one.
 
 Parent label is now **Study Abroad**: it names what the visitor wants to do
 rather than who they are, and removes the "Student › Student" repetition.
+
+
+---
+
+## 9. Menu naming — third pass, and a scope correction
+
+Checked the source document rather than working from the earlier reading.
+
+**What is the client's:** the DOCX page list names both `Universities` and
+`University Partnerships`, and there is a section headed "University
+Partnerships". So the page is theirs.
+
+**What was mine:** the label "Partner With Us", the "For Institutions" hero,
+the "Talk to our partnerships team" CTA, and the top-level nav slot. None of
+that is in the document.
+
+The document's partnership section is purely descriptive — it lists **who**
+Range Global is connected to (11 institutions across 4 countries, plus 5
+recruitment markets) and ends with "We continue to expand our institutional
+partnerships to create broader academic opportunities for international
+students." There is **no invitation to partner** anywhere: no "become a
+partner", no partnership enquiry, nothing asking institutions to make contact.
+The only institution-facing copy in the entire document is two sentences and a
+five-item list.
+
+I had read that as a business goal (inbound partnership leads) when it is
+really **credibility content** — proof for students that the university
+relationships are real. For a small company nobody browses the site and submits
+a partnership request, so a top-level B2B call to action over-weighted a goal
+the client does not have.
+
+Corrected: one page, named as the document names it, holding the institutions
+and the recruitment markets, framed for students and placed under Study Abroad.
+
+```
+Home
+About Us
+Study Abroad  ▾   Student Services · Study Destinations · University Partnerships · Success Stories
+Resources
+```
+
+Four top-level items plus the CTA button. This also settles the flip-flop in
+sections 5 and 8: with the invented B2B job removed there is only one body of
+content — "who we are connected to" — so one page is correct.
+
+**Process note.** Sections 5, 8 and 9 are three passes over the same decision.
+The root cause was inferring a business goal from positioning language instead
+of checking the source document for evidence that the goal existed. Structural
+choices should be traced to something the client actually asked for.
