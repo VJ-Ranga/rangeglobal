@@ -178,20 +178,24 @@ def cta(heading, body, label, href, second=None):
 '''
 
 # ---------------------------------------------------------------- nav / shell
-# Plain words only — a visitor should not need to interpret a label.
+# Four top-level items. Keep it that way — the detail pages live in the one
+# dropdown, they do not get promoted to the top bar.
+#
+# Plain words only, so a visitor never has to interpret a label:
 #   "Destinations"    where you can go
 #   "Universities"    which institutions (not "University Partnerships";
 #                     students search for universities, not partnerships)
 #   "How It Works"    the ten-stage process (was "Student Services", which
 #                     promised programmes and delivered a process)
-# No "Study Abroad" wrapper: it was a category with no content of its own.
 NAV = [
-    ("home",            "Home",            "index.html",            None),
-    ("about",           "About Us",        "about.html",            None),
-    ("destinations",    "Destinations",    "destinations.html",     None),
-    ("universities",    "Universities",    "universities.html",     None),
-    ("how-it-works",    "How It Works",    "how-it-works.html",     None),
-    ("success-stories", "Success Stories", "success-stories.html",  None),
+    ("home",            "Home",         "index.html",        None),
+    ("about",           "About Us",     "about.html",        None),
+    ("students",        "Study Abroad", "destinations.html",
+        [("destinations",    "Destinations",    "destinations.html"),
+         ("universities",    "Universities",    "universities.html"),
+         ("how-it-works",    "How It Works",    "how-it-works.html"),
+         ("success-stories", "Success Stories", "success-stories.html")]),
+    ("resources",       "Resources",    "resources.html",    None),
 ]
 # "Contact" is deliberately not a nav item — the header CTA button points at the
 # same page, so listing both was two controls for one destination.
