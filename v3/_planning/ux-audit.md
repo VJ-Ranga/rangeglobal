@@ -93,10 +93,9 @@ is audience-led, mirroring the split the source document itself makes between
 ```
 Home
 About Us
-For Students  ▾   Student Services · Study Destinations · Success Stories
-For Universities  → University Partnerships
+Study Abroad  ▾   Student Services · Study Destinations · Partner Universities · Success Stories
+Partner With Us   → the institution-facing partnership page
 Resources
-Contact
 ```
 
 Six top-level items. A student and a university partner each have one obvious
@@ -156,3 +155,44 @@ is visible by default rather than stuck at `opacity:0`.
 All 8 pages are generated from one script so the header, nav, and footer cannot
 drift. Editing a page by hand will be overwritten on the next build — change the
 generator instead.
+
+
+---
+
+## 8. Menu naming — second pass
+
+The first pass used the source document's own audience split as nav labels:
+`For Students` / `For Universities`. Both were wrong for different reasons.
+
+**"For Universities" was ambiguous.** It reads as a noun ("here are the
+universities") far more naturally than as an audience ("the section addressed to
+universities"). On a study-abroad site the great majority of visitors are
+students, so the label invited the wrong click from almost everyone — and the
+page behind it opened with a B2B hero written for institutions.
+
+**The page was doing two jobs.** The institution list (a student question) sat
+below a partnership pitch (an institution question), and it was the only place
+those eleven institutions appeared anywhere on the site.
+
+**"For Students › Student Services"** repeated the same word in one path, and
+`For Students` was a dropdown while `For Universities` was a plain link — a
+matched-looking pair with mismatched behaviour.
+
+Resolved by splitting on **job**, not audience:
+
+| Page | Job | Owns |
+|---|---|---|
+| `universities.html` — **Partner Universities** | "Which universities can I apply to?" | The institution list, grouped by country |
+| `university-partnerships.html` — **Partner With Us** | "Why should our institution work with RGE?" | The five service areas, network counts, recruitment markets |
+
+The B2B page shows *counts* and links to the list rather than repeating it, so
+the earlier de-duplication holds: `Global College Malta` now appears on exactly
+one page.
+
+Note this reverses part of section 5. Merging the two pages was right on the
+evidence at the time — they were 37% identical with no differentiating copy —
+but the correct fix was to give each page a distinct job, not to collapse both
+into the institution-facing one.
+
+Parent label is now **Study Abroad**: it names what the visitor wants to do
+rather than who they are, and removes the "Student › Student" repetition.
