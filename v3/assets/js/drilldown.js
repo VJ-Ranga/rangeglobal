@@ -188,13 +188,16 @@
     var host = el('dd-destinations');
     if (!host) return;
     host.innerHTML = D.destinations.map(function (d) {
-      var count = d.universities.length;
-      var meta = count
-        ? count + ' partner institution' + (count === 1 ? '' : 's')
-        : d.tag;
-      return '<a class="dest-card dest-' + esc(d.slug) + '" href="destination.html?c=' + esc(d.slug) + '">' +
-        '<div class="dest-body"><h3>' + esc(d.name) + '</h3>' +
-        '<div class="dest-meta">' + esc(meta) + '</div></div></a>';
+      var photoCls = d.needsPhoto ? 'country-photo no-photo' : 'country-photo dest-' + esc(d.slug);
+      return '<a class="country-card" href="destination.html?c=' + esc(d.slug) + '">' +
+        '<div class="' + photoCls + '">' +
+          '<span class="country-flag">' + esc(d.flag) + '</span>' +
+          (d.needsPhoto ? '<span class="photo-pending">Photo to be supplied</span>' : '') +
+        '</div>' +
+        '<div class="country-body">' +
+          '<h3>' + esc(d.name) + '</h3>' +
+          '<p>' + esc(d.intro) + '</p>' +
+        '</div></a>';
     }).join('');
   }
 

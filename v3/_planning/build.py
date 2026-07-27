@@ -259,8 +259,8 @@ def shell(slug, active, title, desc, main, depth, dd=None, data=False):
     explore = "\n".join(f'          <li><a href="{href(t, depth)}">{l}</a></li>' for l, t in FOOT_EXPLORE)
     partner = "\n".join(f'          <li><a href="{href(t, depth)}">{l}</a></li>' for l, t in FOOT_PARTNER)
     dd_attr = f' data-dd="{dd}"' if dd else ""
-    data_js = (f'<script src="{a}assets/js/data.js?v=5"></script>\\n'
-               f'<script src="{a}assets/js/drilldown.js?v=5"></script>') if data else ""
+    data_js = (f'<script src="{a}assets/js/data.js?v=8"></script>\\n'
+               f'<script src="{a}assets/js/drilldown.js?v=8"></script>') if data else ""
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -274,7 +274,7 @@ def shell(slug, active, title, desc, main, depth, dd=None, data=False):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{a}assets/css/style.css?v=5">
+<link rel="stylesheet" href="{a}assets/css/style.css?v=8">
 </head>
 <body{dd_attr}>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -364,7 +364,7 @@ def shell(slug, active, title, desc, main, depth, dd=None, data=False):
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 
-<script src="{a}assets/js/main.js?v=5"></script>
+<script src="{a}assets/js/main.js?v=8"></script>
 {data_js}
 </body>
 </html>

@@ -23,7 +23,8 @@
 
   var destinations = [
     {
-      slug: 'malta', name: 'Malta', tag: 'Direct collaborations', confirmed: true,
+      slug: 'malta', name: 'Malta', tag: 'Direct collaborations', confirmed: true, needsPhoto: true,
+      flag: '🇲🇹', intro: 'Seven direct partner institutions, English-taught programmes inside the EU.',
       blurb: 'Our largest group of direct university collaborations. English-taught programmes inside the EU, with seven partner institutions across the island.',
       notes: {
         visa: 'National (long-stay) student visa. Requirements and processing times vary — our counsellors advise per institution.',
@@ -80,6 +81,7 @@
 
     {
       slug: 'new-zealand', name: 'New Zealand', tag: 'Direct collaborations', confirmed: true,
+      flag: '🇳🇿', intro: 'Two direct partner institutions in Auckland, with strong post-study work pathways.',
       blurb: 'Two direct partner institutions in Auckland, plus wider access through our authorised recruitment partnership for New Zealand.',
       notes: {
         visa: 'Fee-paying student visa. Evidence of funds and an offer of place are required.',
@@ -103,7 +105,8 @@
     },
 
     {
-      slug: 'georgia', name: 'Georgia', tag: 'Direct collaboration', confirmed: true,
+      slug: 'georgia', name: 'Georgia', tag: 'Direct collaboration', confirmed: true, needsPhoto: true,
+      flag: '🇬🇪', intro: 'English-taught medical and business degrees at lower tuition than most of Europe.',
       blurb: 'A direct collaboration with Alte University in Tbilisi, offering English-taught degrees at lower tuition than most European destinations.',
       notes: {
         visa: 'Student residence permit applied for after arrival, based on the university offer.',
@@ -123,6 +126,7 @@
 
     {
       slug: 'malaysia', name: 'Malaysia', tag: 'Direct collaboration', confirmed: true,
+      flag: '🇲🇾', intro: 'An established private university with UK and Australian degree pathways.',
       blurb: 'A direct collaboration with INTI International University, one of Malaysia’s established private universities with UK and Australian degree pathways.',
       notes: {
         visa: 'Student Pass arranged through the university via EMGS before travel.',
@@ -144,6 +148,7 @@
     // No named direct partner institutions in the source document.
     {
       slug: 'ireland', name: 'Ireland', tag: 'Recruitment partnerships', confirmed: true, network: true,
+      flag: '🇮🇪', intro: 'English-speaking EU destination reached through our authorised recruitment network.',
       blurb: 'Reached through our authorised global recruitment partnerships, giving access to a broader network of recognised Irish institutions.',
       notes: {
         visa: 'Irish study visa, applied for after receiving an offer and paying tuition.',
@@ -154,6 +159,7 @@
     },
     {
       slug: 'netherlands', name: 'Netherlands', tag: 'Recruitment partnerships', confirmed: true, network: true,
+      flag: '🇳🇱', intro: 'A wide range of English-taught programmes across recognised Dutch institutions.',
       blurb: 'Reached through our authorised global recruitment partnerships, with a wide range of English-taught programmes.',
       notes: {
         visa: 'MVV entry visa and residence permit, arranged by the institution as your sponsor.',
@@ -164,6 +170,7 @@
     },
     {
       slug: 'united-states', name: 'United States', tag: 'Recruitment partnerships', confirmed: true, network: true,
+      flag: '🇺🇸', intro: 'A broad range of colleges and universities through our recruitment partnerships.',
       blurb: 'Reached through our authorised global recruitment partnerships, covering a broad range of colleges and universities.',
       notes: {
         visa: 'F-1 student visa, following the I-20 issued by your institution.',
@@ -174,6 +181,7 @@
     },
     {
       slug: 'canada', name: 'Canada', tag: 'Approved destination', confirmed: true, network: true,
+      flag: '🇨🇦', intro: 'One of the most popular destinations, with globally recognised degrees and post-study work pathways.',
       blurb: 'An approved study destination within our network, with programmes across colleges and universities.',
       notes: {
         visa: 'Study permit, applied for with a Provincial Attestation Letter and letter of acceptance.',
