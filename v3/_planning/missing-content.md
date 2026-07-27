@@ -11,13 +11,21 @@ The following items are not available in `RGE Website contents (1).docx`. They m
 
 ## Contact Details
 
-- Phone number
-- Email address
-- WhatsApp number
-- Office address
-- Google Maps link
-- Business hours
-- Social media links
+Received 27 Jul 2026 and now live on the site:
+
+- ~~Office address~~ — No 211, 4/1, Dinapala Building, New Galle Road, Moratuwa, Sri Lanka
+- ~~Email address~~ — info@rangeglobal.lk
+- ~~Phone number~~ — +94 117 84 85 46
+- ~~Google Maps link~~ — embedded from the address above
+
+Still outstanding:
+
+- **WhatsApp number** — the floating WhatsApp button currently points at the
+  landline (`wa.me/94117848546`). If that line is not a WhatsApp account the
+  button will not work; supply the real number or say to remove the button.
+- **Business hours**
+- **Social media links** — Facebook / Instagram / LinkedIn icons are live in the
+  top bar and footer, but all three `href`s are still `#`.
 
 ## Study Destinations
 

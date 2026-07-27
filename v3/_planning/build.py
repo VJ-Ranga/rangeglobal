@@ -94,6 +94,28 @@ RES = [
      "Blog categories, article topics, article content, author names and publish dates"),
 ]
 
+# ---------------------------------------------------------------- contact
+ADDRESS   = "No 211, 4/1, Dinapala Building, New Galle Road, Moratuwa, Sri Lanka"
+EMAIL     = "info@rangeglobal.lk"
+PHONE     = "+94 117 84 85 46"
+PHONE_TEL = "+94117848546"
+WA_NUMBER = "94117848546"   # assumed same as the landline — confirm with client
+MAP_Q     = "No+211+4%2F1+Dinapala+Building+New+Galle+Road+Moratuwa+Sri+Lanka"
+
+# Social profile URLs not supplied yet — icons are live, hrefs are placeholders.
+SOCIAL = [
+    ("Facebook",  "#", '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>'),
+    ("Instagram", "#", '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>'),
+    ("LinkedIn",  "#", '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg>'),
+]
+SOCIAL_TOP = "".join(f'<a href="{u}" aria-label="{n}">{s}</a>' for n, u, s in SOCIAL)
+SOCIAL_FOOT = "\n          ".join(f'<a href="{u}" aria-label="{n}">{s}</a>' for n, u, s in SOCIAL)
+
+ICON_PIN   = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'
+ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+ICON_MAIL  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>'
+ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'
+
 ARROW = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">'
          '<path d="M5 12h14M13 6l6 6-6 6"/></svg>')
 INFO = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
@@ -157,7 +179,7 @@ def cta(heading, body, label, href, second=None):
 
 # ---------------------------------------------------------------- nav / shell
 # Audience-led IA, mirroring the source document's own split between
-# "For Universities" and "For Future Graduates". Six top-level items.
+# "For Universities" and "For Future Graduates". Five top-level items + CTA.
 NAV = [
     ("home",     "Home",              "index.html",                  None),
     ("about",    "About Us",          "about.html",                  None),
@@ -167,8 +189,9 @@ NAV = [
          ("success-stories", "Success Stories", "success-stories.html")]),
     ("partners", "For Universities",  "university-partnerships.html", None),
     ("resources","Resources",         "resources.html",              None),
-    ("contact",  "Contact",           "contact.html",                None),
 ]
+# "Contact" is deliberately not a nav item — the header CTA button points at the
+# same page, so listing both was two controls for one destination.
 
 CARET = ('<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
          'stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>')
@@ -241,7 +264,7 @@ def shell(slug, active, title, desc, main, depth):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{a}assets/css/style.css?v=2">
+<link rel="stylesheet" href="{a}assets/css/style.css?v=3">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -254,16 +277,10 @@ def shell(slug, active, title, desc, main, depth):
 <div class="utility-bar">
   <div class="container">
     <div class="utility-left">
-      <span class="hide-mobile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Phone — pending client confirmation
-      </span>
-      <span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-        Email — pending
-      </span>
+      <a href="tel:{PHONE_TEL}">{ICON_PHONE}{PHONE}</a>
+      <a href="mailto:{EMAIL}" class="hide-mobile">{ICON_MAIL}{EMAIL}</a>
     </div>
-    <div class="utility-right"><a href="{href("contact.html", depth)}">Start Your Journey</a></div>
+    <div class="utility-right utility-social">{SOCIAL_TOP}</div>
   </div>
 </div>
 
@@ -299,9 +316,7 @@ def shell(slug, active, title, desc, main, depth):
         <div class="footer-logo-plate"><img src="{a}assets/img/rg-logo-white.png" alt="Range Global Education"></div>
         <p>Empowering Through Education. We connect institutions with capable applicants through informed representation, structured processes, and dedicated support.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg></a>
+          {SOCIAL_FOOT}
         </div>
       </div>
       <div class="footer-col">
@@ -319,9 +334,9 @@ def shell(slug, active, title, desc, main, depth):
       <div class="footer-col">
         <h3>Contact</h3>
         <ul class="footer-contact">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="footer-pending">Office address — pending client confirmation</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="footer-pending">Phone / WhatsApp — pending</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg><span class="footer-pending">Email address — pending</span></li>
+          <li>{ICON_PIN}<span>{ADDRESS}</span></li>
+          <li>{ICON_PHONE}<a href="tel:{PHONE_TEL}">{PHONE}</a></li>
+          <li>{ICON_MAIL}<a href="mailto:{EMAIL}">{EMAIL}</a></li>
         </ul>
       </div>
     </div>
@@ -332,14 +347,14 @@ def shell(slug, active, title, desc, main, depth):
   </div>
 </footer>
 
-<a class="wa-float" href="#" aria-label="WhatsApp — number pending">
+<a class="wa-float" href="https://wa.me/{WA_NUMBER}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.17c-.25.69-1.44 1.32-1.99 1.36-.53.05-1.02.24-3.43-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.09.99-2.37.25-.28.55-.35.74-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.6.84 2.07.91 2.22.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.63-.14.25.09 1.62.76 1.9.9.28.14.46.21.53.32.07.12.07.65-.18 1.34z"/></svg>
 </a>
 <button class="top-float" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 
-<script src="{a}assets/js/main.js?v=2"></script>
+<script src="{a}assets/js/main.js?v=3"></script>
 </body>
 </html>
 '''
@@ -831,32 +846,32 @@ PAGES["contact"] = dict(slug="contact", active="contact", depth=1,
             <h3 style="color:#fff; font-size:20px; margin-bottom:6px;">Range Global Education (Pvt) Ltd</h3>
             <ul style="margin-top:18px;">
               <li class="contact-tile">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div><h4>Office address</h4><p>Pending client confirmation</p></div>
+                {ICON_PIN}
+                <div><h4>Address</h4><p>{ADDRESS}</p></div>
               </li>
               <li class="contact-tile">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div><h4>Phone</h4><p>Pending client confirmation</p></div>
+                {ICON_MAIL}
+                <div><h4>Mail us</h4><p><a href="mailto:{EMAIL}">{EMAIL}</a></p></div>
               </li>
               <li class="contact-tile">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
-                <div><h4>Email</h4><p>Pending client confirmation</p></div>
+                {ICON_PHONE}
+                <div><h4>Telephone</h4><p><a href="tel:{PHONE_TEL}">{PHONE}</a></p></div>
               </li>
               <li class="contact-tile">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                {ICON_CLOCK}
                 <div><h4>Business hours</h4><p>Pending client confirmation</p></div>
               </li>
             </ul>
             <div class="placeholder-note" style="margin-top:24px;">{INFO}
-              <span>Phone, email, WhatsApp, address, Google Maps link, business hours and social links are all waiting on the client. The layout is final — only the values need dropping in.</span>
+              <span>Still pending: business hours, the WhatsApp number (the button currently uses the landline), and social profile links.</span>
             </div>
           </div>
 
-          <div style="margin-top:24px; background:var(--soft); border:1px dashed #B9B0A2; border-radius:var(--radius); aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;">
-            <div>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:38px; height:38px; color:#9A9284; margin:0 auto 10px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <div style="font-size:12px; letter-spacing:.11em; text-transform:uppercase; color:var(--mid-gray);">Google Maps embed — awaiting office address</div>
-            </div>
+          <div class="map-embed" style="margin-top:24px;">
+            <iframe
+              src="https://maps.google.com/maps?q={MAP_Q}&amp;z=16&amp;output=embed"
+              title="Range Global Education office location, Moratuwa"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
