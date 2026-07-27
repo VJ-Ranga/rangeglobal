@@ -178,21 +178,20 @@ def cta(heading, body, label, href, second=None):
 '''
 
 # ---------------------------------------------------------------- nav / shell
-# Labels name what the visitor wants to do, not who they are.
-#
-# There is no "Partner With Us" item: the source document describes WHO Range
-# Global is connected to, but never invites institutions to apply for a
-# partnership. That content is credibility for students, not lead generation,
-# so it sits under Study Abroad rather than taking a top-level slot.
+# Plain words only — a visitor should not need to interpret a label.
+#   "Destinations"    where you can go
+#   "Universities"    which institutions (not "University Partnerships";
+#                     students search for universities, not partnerships)
+#   "How It Works"    the ten-stage process (was "Student Services", which
+#                     promised programmes and delivered a process)
+# No "Study Abroad" wrapper: it was a category with no content of its own.
 NAV = [
-    ("home",     "Home",              "index.html",                  None),
-    ("about",    "About Us",          "about.html",                  None),
-    ("students", "Study Abroad",      "student-services.html",
-        [("student-services", "Student Services", "student-services.html"),
-         ("study-destinations", "Study Destinations", "study-destinations.html"),
-         ("partners", "University Partnerships", "university-partnerships.html"),
-         ("success-stories", "Success Stories", "success-stories.html")]),
-    ("resources","Resources",         "resources.html",              None),
+    ("home",            "Home",            "index.html",            None),
+    ("about",           "About Us",        "about.html",            None),
+    ("destinations",    "Destinations",    "destinations.html",     None),
+    ("universities",    "Universities",    "universities.html",     None),
+    ("how-it-works",    "How It Works",    "how-it-works.html",     None),
+    ("success-stories", "Success Stories", "success-stories.html",  None),
 ]
 # "Contact" is deliberately not a nav item — the header CTA button points at the
 # same page, so listing both was two controls for one destination.
@@ -243,18 +242,21 @@ def build_mobile(active, depth):
     return "\n".join(parts)
 
 
-FOOT_EXPLORE = [("About Us", "about.html"), ("Student Services", "student-services.html"),
-                ("Study Destinations", "study-destinations.html"), ("Success Stories", "success-stories.html")]
-FOOT_PARTNER = [("University Partnerships", "university-partnerships.html"),
+FOOT_EXPLORE = [("About Us", "about.html"), ("How It Works", "how-it-works.html"),
+                ("Destinations", "destinations.html"), ("Success Stories", "success-stories.html")]
+FOOT_PARTNER = [("Universities", "universities.html"),
                 ("Resources", "resources.html"), ("Contact", "contact.html")]
 
 
-def shell(slug, active, title, desc, main, depth):
+def shell(slug, active, title, desc, main, depth, dd=None, data=False):
     a = "../" if depth else ""
     nav = build_nav(active, depth)
     mob = build_mobile(active, depth)
     explore = "\n".join(f'          <li><a href="{href(t, depth)}">{l}</a></li>' for l, t in FOOT_EXPLORE)
     partner = "\n".join(f'          <li><a href="{href(t, depth)}">{l}</a></li>' for l, t in FOOT_PARTNER)
+    dd_attr = f' data-dd="{dd}"' if dd else ""
+    data_js = (f'<script src="{a}assets/js/data.js?v=5"></script>\\n'
+               f'<script src="{a}assets/js/drilldown.js?v=5"></script>') if data else ""
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -270,7 +272,7 @@ def shell(slug, active, title, desc, main, depth):
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{a}assets/css/style.css?v=5">
 </head>
-<body>
+<body{dd_attr}>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div class="loader">
@@ -359,6 +361,7 @@ def shell(slug, active, title, desc, main, depth):
 </button>
 
 <script src="{a}assets/js/main.js?v=5"></script>
+{data_js}
 </body>
 </html>
 '''
@@ -407,8 +410,8 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
         <div class="hero-sub">Education Beyond Borders</div>
         <p class="hero-copy">Education opens doors to opportunities, cultures, careers, and lifelong connections. We help students confidently begin their international education journey while building meaningful partnerships with universities across the world.</p>
         <div class="hero-actions">
-          <a href="pages/student-services.html" class="btn btn-primary">Start Your Journey {ARROW}</a>
-          <a href="pages/university-partnerships.html" class="btn btn-outline-light">University Partnerships</a>
+          <a href="pages/how-it-works.html" class="btn btn-primary">Start Your Journey {ARROW}</a>
+          <a href="pages/universities.html" class="btn btn-outline-light">Universities</a>
         </div>
       </div>
       <div class="hero-scroll">Scroll
@@ -455,7 +458,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
             <li>Direct Collaborations</li><li>International Recruitment</li><li>Market Representation</li>
             <li>Student Outreach</li><li>Partnership Development</li>
           </ul>
-          <a href="pages/university-partnerships.html" class="btn btn-outline btn-sm" style="margin-top:26px;">University Partnerships {ARROW}</a>
+          <a href="pages/universities.html" class="btn btn-outline btn-sm" style="margin-top:26px;">Universities {ARROW}</a>
         </div>
         <div>
           <div class="aud-head">
@@ -466,7 +469,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
             <li>Destination Selection</li><li>Programme Guidance</li><li>Admission Process</li>
             <li>Visa Support</li><li>Pre-Departure Preparation</li>
           </ul>
-          <a href="pages/student-services.html" class="btn btn-outline btn-sm" style="margin-top:26px;">Student Services {ARROW}</a>
+          <a href="pages/how-it-works.html" class="btn btn-outline btn-sm" style="margin-top:26px;">How It Works {ARROW}</a>
         </div>
       </div>
     </div>
@@ -480,7 +483,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
           <h2 class="h-lg">Four phases, ten stages</h2>
           <p>We support applicants throughout each stage of their international academic journey.</p>
         </div>
-        <a href="pages/student-services.html" class="btn btn-outline">See all ten stages {ARROW}</a>
+        <a href="pages/how-it-works.html" class="btn btn-outline">See how it works {ARROW}</a>
       </div>
       <div class="grid g-4 stagger">
 {phase_cards}
@@ -496,10 +499,10 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
           <h2 class="h-lg">Eight destinations, one point of contact</h2>
           <p>International applicants can compare programmes and opportunities through a single point of contact.</p>
         </div>
-        <a href="pages/study-destinations.html" class="btn btn-outline">View Study Destinations {ARROW}</a>
+        <a href="pages/destinations.html" class="btn btn-outline">View destinations {ARROW}</a>
       </div>
       <div class="chip-row reveal">
-{chips(n for n, _, _ in DESTS)}
+{"".join(f'<a class="chip" href="pages/destination.html?c={s}"><span class="dot"></span>{n}</a>' for n, s, _ in DESTS)}
       </div>
     </div>
   </section>
@@ -512,7 +515,7 @@ PAGES["index"] = dict(slug="index", active="home", depth=0,
           <h2 class="h-lg">Eleven institutions across four countries</h2>
           <p>Direct university collaborations you can apply to through Range Global, alongside a wider network reached through authorised recruitment partnerships.</p>
         </div>
-        <a href="pages/university-partnerships.html" class="btn btn-outline-light">View Partnerships {ARROW}</a>
+        <a href="pages/universities.html" class="btn btn-outline-light">View universities {ARROW}</a>
       </div>
       <div class="grid g-4 stagger">
         <div class="card card-dark stat-item"><div class="stat-num on-dark" data-count="7">0</div><div class="stat-label on-dark">Malta</div></div>
@@ -589,27 +592,27 @@ PAGES["about"] = dict(slug="about", active="about", depth=1,
   </section>
 ''' + cta("Explore how we support students and institutions",
           "See the full support journey, or review our direct collaborations and recruitment partnerships.",
-          "Student Services", "student-services.html",
-          second=("Partnerships", "university-partnerships.html")))
+          "How It Works", "how-it-works.html",
+          second=("Universities", "universities.html")))
 
-# ---------------------------------------------------------------- STUDENT SERVICES
+# ---------------------------------------------------------------- HOW IT WORKS
 rail = "\n".join(
     f'''        <div class="rail-step reveal">
           <div class="rail-num">{i:02d}</div>
           <div><h3>{name}</h3><p>{body}</p></div>
         </div>''' for i, (name, body) in enumerate(STEPS, 1))
 
-PAGES["student-services"] = dict(slug="student-services", active="student-services", depth=1,
-  title="Student Services — Range Global Education",
-  desc="The complete Range Global Education support journey, from Discover through to Begin Your Studies.",
-  main=page_hero("Student Services", "Complete Support Services",
+PAGES["how-it-works"] = dict(slug="how-it-works", active="how-it-works", depth=1,
+  title="How It Works — Range Global Education",
+  desc="The ten stages of applying through Range Global Education, from your first conversation to the day you begin your studies.",
+  main=page_hero("How It Works", "Ten Stages, Start To Finish",
     "We support applicants throughout each stage of their international academic journey.",
-    [("Home", "../index.html"), ("For Students", None), ("Student Services", None)]) + f'''
+    [("Home", "../index.html"), ("How It Works", None)]) + f'''
   <section>
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">The Journey</div>
-        <h2 class="h-lg">Ten stages, one coordinated process</h2>
+        <h2 class="h-lg">What happens, and when</h2>
         <p>Our objective is to help future graduates understand each stage of the process, enabling informed decisions before beginning their studies abroad.</p>
       </div>
       <div class="journey-rail">
@@ -622,42 +625,40 @@ PAGES["student-services"] = dict(slug="student-services", active="student-servic
     <div class="container">
       <div class="split">
         <div class="reveal">
-          <div class="eyebrow">For Future Graduates</div>
-          <h2 class="h-lg">What we handle with you</h2>
-          <div style="margin-top:24px;">
+          <div class="eyebrow">What We Handle</div>
+          <h2 class="h-lg">Support at every stage</h2>
+          <div style="margin-top:22px;">
             <div class="chip-row">
 {chips(["Destination Selection", "Programme Guidance", "Admission Process", "Visa Support", "Pre-Departure Preparation"])}
             </div>
           </div>
-          <p style="margin-top:26px; font-size:15.5px;">Our discussions begin with the student's academic objectives, preferred study destination, and long-term aspirations before exploring programme options.</p>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:28px;">Start Your Journey {ARROW}</a>
+          <p style="margin-top:24px; font-size:15.5px;">Our discussions begin with your academic objectives, preferred study destination, and long-term aspirations before exploring programme options.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:26px;">Start Your Journey {ARROW}</a>
         </div>
         <div class="reveal"><div class="image-card img-meeting" style="width:100%; aspect-ratio:4/3;"></div></div>
       </div>
     </div>
   </section>
 ''' + cta("Have a question about any stage?",
-          "Connect with Range Global Education to discuss destinations, programmes and the admission process.",
+          "Talk to us about destinations, programmes and the admission process.",
           "Contact Us", "contact.html"))
 
-# ---------------------------------------------------------------- STUDY DESTINATIONS
-PAGES["study-destinations"] = dict(slug="study-destinations", active="study-destinations", depth=1,
-  title="Study Destinations — Range Global Education",
-  desc="Compare programmes and opportunities across Malta, Malaysia, Ireland, the Netherlands, the United States, New Zealand, Canada and Georgia.",
-  main=page_hero("Study Destinations", "Education Beyond Borders",
+# ---------------------------------------------------------------- DESTINATIONS (index)
+PAGES["destinations"] = dict(slug="destinations", active="destinations", depth=1, data=True,
+  title="Destinations — Range Global Education",
+  desc="Study destinations available through Range Global Education: Malta, Malaysia, Ireland, the Netherlands, the United States, New Zealand, Canada and Georgia.",
+  main=page_hero("Destinations", "Where You Can Study",
     "Range Global Education connects students with higher education opportunities across established international study destinations.",
-    [("Home", "../index.html"), ("For Students", None), ("Study Destinations", None)]) + f'''
+    [("Home", "../index.html"), ("Destinations", None)]) + f'''
   <section>
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">Approved Destinations</div>
         <h2 class="h-lg">Eight destinations, one point of contact</h2>
-        <p>International applicants can compare programmes and opportunities across Malta, Malaysia, Ireland, the Netherlands, the United States, New Zealand, Canada, and Georgia through a single point of contact.</p>
+        <p>Pick a country to see the institutions we work with there, along with visa, cost and intake notes.</p>
       </div>
-      <div class="dest-grid stagger">
-{dest_cards()}
-      </div>
-{note("Demo note — destination names are confirmed. Per-destination detail (overview, visa notes, cost guidance, intakes, work rights and entry requirements) is waiting on client content and has deliberately not been invented.")}
+      <div class="dest-grid stagger" id="dd-destinations"></div>
+{note("Demo note — destination names are confirmed from the client content document. Visa notes, cost-of-living figures and intake months are sample data pending client confirmation.")}
     </div>
   </section>
 
@@ -671,40 +672,61 @@ PAGES["study-destinations"] = dict(slug="study-destinations", active="study-dest
         </div>
         <div class="reveal">
           <p style="font-size:15.5px;">Alongside our direct university collaborations, Range Global Education has access to a broader international network of higher education institutions through authorised global recruitment partnerships.</p>
-          <a href="university-partnerships.html" class="btn btn-outline-light" style="margin-top:26px;">View University Partnerships {ARROW}</a>
+          <a href="universities.html" class="btn btn-outline-light" style="margin-top:26px;">See all universities {ARROW}</a>
         </div>
       </div>
     </div>
   </section>
 ''' + cta("Not sure which destination fits?",
-          "Our discussions begin with your academic objectives and long-term aspirations before exploring programme options.",
+          "Our discussions begin with your academic objectives and long-term aspirations.",
           "Talk To Us", "contact.html"))
 
-# ---------------------------------------------------------------- UNIVERSITY PARTNERSHIPS
-# Merged: this page now owns the full institution list. The former separate
-# universities.html carried no unique content (37% byte-identical) and was cut.
-# ---------------------------------------------------------------- UNIVERSITY PARTNERSHIPS
-# One page, named as the source document names it. The document describes who
-# Range Global is connected to; it never invites institutions to apply for a
-# partnership. So this is credibility content for students, not a B2B pitch —
-# no "for institutions" hero, no partnership lead-gen CTA.
-PAGES["university-partnerships"] = dict(slug="university-partnerships", active="partners", depth=1,
-  title="University Partnerships — Range Global Education",
-  desc="The universities Range Global Education works with directly across Malta, New Zealand, Georgia and Malaysia, plus a wider network reached through authorised recruitment partnerships.",
-  main=page_hero("University Partnerships", "Institutions You Can Apply To",
+# ---------------------------------------------------------------- DRILL-DOWN SHELLS
+# These three are filled at runtime by assets/js/drilldown.js from the
+# ?c= / ?u= / ?p= query parameter.
+def dd_shell(slug, active, dd, title, desc):
+    return dict(slug=slug, active=active, depth=1, dd=dd, data=True, title=title, desc=desc,
+      main='''
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow on-dark" id="dd-eyebrow">Loading</div>
+      <h1 class="h-xl" id="dd-title">&nbsp;</h1>
+      <p id="dd-lead"></p>
+      <div class="crumb" id="dd-crumb"></div>
+    </div>
+  </section>
+
+  <section id="dd-body"></section>
+''' + cta("Ready to take the next step?",
+          "Talk to us about entry requirements, intakes and the application process.",
+          "Contact Us", "contact.html"))
+
+PAGES["destination"] = dd_shell("destination", "destinations", "destination",
+  "Study Destination — Range Global Education",
+  "Universities, visa notes and cost-of-living guidance for this study destination.")
+PAGES["university"] = dd_shell("university", "universities", "university",
+  "University — Range Global Education",
+  "Location, accreditation, intake periods and programmes offered at this partner institution.")
+PAGES["program"] = dd_shell("program", "universities", "program",
+  "Programme — Range Global Education",
+  "Level, duration, tuition, intakes and entry requirements for this programme.")
+
+# ---------------------------------------------------------------- UNIVERSITIES
+PAGES["universities"] = dict(slug="universities", active="universities", depth=1, data=True,
+  title="Universities — Range Global Education",
+  desc="The eleven institutions Range Global Education works with directly across Malta, New Zealand, Georgia and Malaysia.",
+  main=page_hero("Universities", "Institutions You Can Apply To",
     "We establish direct partnerships with universities while also providing access to a broader network of internationally recognised institutions through authorised recruitment partnerships.",
-    [("Home", "../index.html"), ("Study Abroad", None), ("University Partnerships", None)]) + f'''
+    [("Home", "../index.html"), ("Universities", None)]) + f'''
   <section>
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">Direct Collaborations</div>
         <h2 class="h-lg">Eleven institutions across four countries</h2>
-        <p>We work to establish direct partnerships with universities, enabling clear institutional communication and effective student recruitment.</p>
+        <p>We work with these institutions directly, which means clear communication throughout your application. Pick one to see its programmes.</p>
       </div>
-      <div class="grid g-2 stagger">
-{country_blocks()}
-      </div>
-{note("Demo note — institution names are confirmed. Descriptions, campus details, accreditation wording, available programmes, entry requirements, intakes and fees are waiting on client content and institution-approved partner wording.")}
+      <div id="dd-universities"></div>
+{note("Demo note — institution names are confirmed. Campus details, accreditation wording and programme lists are sample data pending institution-approved detail.")}
     </div>
   </section>
 
@@ -718,25 +740,9 @@ PAGES["university-partnerships"] = dict(slug="university-partnerships", active="
           <div class="chip-row" style="margin-top:24px;">
 {chips(RECRUIT)}
           </div>
-          <p style="margin-top:24px; font-size:15.5px;">We continue to expand our institutional partnerships to create broader academic opportunities for international students.</p>
+          <p style="margin-top:22px; font-size:15.5px;">We continue to expand our institutional partnerships to create broader academic opportunities for international students.</p>
         </div>
         <div class="reveal"><div class="image-card img-campus" style="width:100%; aspect-ratio:4/3;"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-dark">
-    <div class="container">
-      <div class="split">
-        <div class="reveal">
-          <div class="eyebrow on-dark">What This Means For You</div>
-          <h2 class="h-lg">Guided towards the right institution</h2>
-          <p style="margin-top:18px; font-size:16px;">Where appropriate, students are guided towards institutions that best align with their academic background, career objectives, and preferred study destination.</p>
-        </div>
-        <div class="reveal">
-          <p style="font-size:15.5px;">Working directly with institutions means clear communication throughout your application, and our engagement continues beyond the offer letter through visa preparation and pre-departure arrangements.</p>
-          <a href="student-services.html" class="btn btn-outline-light" style="margin-top:26px;">See the application journey {ARROW}</a>
-        </div>
       </div>
     </div>
   </section>
@@ -896,9 +902,9 @@ PAGES["contact"] = dict(slug="contact", active="contact", depth=1,
         <h2 class="h-lg">Explore before you enquire</h2>
       </div>
       <div class="grid g-3 stagger">
-        <a class="card card-accent" href="student-services.html"><h3>Student Services</h3><p>The complete ten-stage support journey from Discover to Begin Your Studies.</p></a>
-        <a class="card card-accent" href="study-destinations.html"><h3>Study Destinations</h3><p>Eight approved destinations you can compare through a single point of contact.</p></a>
-        <a class="card card-accent" href="university-partnerships.html"><h3>University Partnerships</h3><p>Eleven institutions across Malta, New Zealand, Georgia and Malaysia.</p></a>
+        <a class="card card-accent" href="how-it-works.html"><h3>How It Works</h3><p>The complete ten-stage support journey from Discover to Begin Your Studies.</p></a>
+        <a class="card card-accent" href="destinations.html"><h3>Destinations</h3><p>Eight approved destinations you can compare through a single point of contact.</p></a>
+        <a class="card card-accent" href="universities.html"><h3>Universities</h3><p>Eleven institutions across Malta, New Zealand, Georgia and Malaysia.</p></a>
       </div>
     </div>
   </section>
@@ -907,7 +913,8 @@ PAGES["contact"] = dict(slug="contact", active="contact", depth=1,
 # ================================================================ write
 (ROOT / "pages").mkdir(exist_ok=True)
 for key, p in PAGES.items():
-    html = shell(p["slug"], p["active"], p["title"], p["desc"], p["main"], p["depth"])
+    html = shell(p["slug"], p["active"], p["title"], p["desc"], p["main"], p["depth"],
+                 dd=p.get("dd"), data=p.get("data", False))
     out = ROOT / ("index.html" if p["depth"] == 0 else f"pages/{p['slug']}.html")
     out.write_text(html)
     print("wrote", out.relative_to(ROOT))

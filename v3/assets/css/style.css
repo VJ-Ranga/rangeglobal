@@ -407,6 +407,70 @@ section{ padding:104px 0; }
 .inst-list li:last-child{ border-bottom:none; }
 .inst-list li .mark{ width:30px; height:30px; border-radius:50%; background:var(--red-tint); color:var(--red-dark); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex:0 0 auto; }
 
+/* ===========================================================
+   DRILL-DOWN — destination / university / programme
+   =========================================================== */
+.dd-layout{ display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:52px; align-items:start; }
+@media (max-width:980px){ .dd-layout{ grid-template-columns:1fr; gap:34px; } }
+
+.dd-aside{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px 26px; position:sticky; top:calc(var(--header-h) + 20px); box-shadow:0 14px 34px rgba(10,10,10,.06); }
+@media (max-width:980px){ .dd-aside{ position:static; } }
+.dd-aside h3{ font-size:18px; margin-bottom:12px; }
+.dd-aside p{ font-size:14px; color:var(--mid-gray); }
+.aside-row{ padding:16px 0; border-bottom:1px solid var(--line); }
+.aside-row:last-of-type{ border-bottom:none; }
+.aside-label{ display:block; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--graphite); margin-bottom:6px; }
+
+/* clickable rows — universities on a country page, programmes on a uni page */
+.row-list li{ margin-bottom:12px; }
+.row-item{
+  display:flex; align-items:center; gap:16px; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius); padding:20px 22px;
+  transition:border-color .22s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.row-item:hover{ border-color:var(--red); transform:translateX(4px); box-shadow:0 12px 28px rgba(10,10,10,.08); }
+.row-main{ flex:1; min-width:0; }
+.row-main strong{ display:block; font-size:16px; font-weight:600; color:var(--ink); }
+.row-main small{ display:block; font-size:13px; color:var(--mid-gray); margin-top:4px; }
+.row-go{ color:var(--red); display:flex; flex:0 0 auto; }
+.row-go svg{ width:17px; height:17px; transition:transform .22s var(--ease); }
+.row-item:hover .row-go svg{ transform:translateX(4px); }
+@media (max-width:560px){
+  .row-item{ flex-wrap:wrap; gap:10px; }
+  .row-main{ flex:1 0 100%; }
+}
+
+/* fact grid — university / programme key details */
+.fact-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+@media (max-width:560px){ .fact-grid{ grid-template-columns:1fr; } }
+.fact{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; }
+.fact-label{ font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:7px; }
+.fact-value{ font-size:15.5px; font-weight:600; color:var(--ink); line-height:1.45; }
+
+/* institution index — country label + flowing cards, so one institution
+   and seven both fill their row (the fixed 4-column layout left dead space) */
+.country-group{ margin-bottom:44px; }
+.country-group:last-child{ margin-bottom:0; }
+.country-label{
+  display:flex; align-items:baseline; gap:12px; font-size:13px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--red-dark);
+  padding-bottom:12px; margin-bottom:20px; border-bottom:2px solid var(--line);
+}
+.country-label span{ font-size:11.5px; letter-spacing:.08em; color:var(--mid-gray); font-weight:600; }
+.uni-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(268px, 1fr)); gap:16px; }
+.uni-card{
+  position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px 24px 20px; display:flex; flex-direction:column; gap:4px;
+  transition:border-color .22s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.uni-card:hover{ border-color:var(--red); transform:translateY(-4px); box-shadow:0 16px 36px rgba(10,10,10,.09); }
+.uni-card strong{ font-size:16px; font-weight:600; color:var(--ink); padding-right:22px; }
+.uni-card small{ font-size:13px; color:var(--mid-gray); }
+.uni-type{ margin-top:10px; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--red-dark); }
+.uni-go{ position:absolute; top:20px; right:20px; color:var(--red); display:flex; }
+.uni-go svg{ width:15px; height:15px; transition:transform .22s var(--ease); }
+.uni-card:hover .uni-go svg{ transform:translateX(3px); }
+
 /* ---------- values ---------- */
 .value-item{ padding:30px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:58px 1fr; gap:24px; align-items:start; }
 .value-item:last-child{ border-bottom:none; }

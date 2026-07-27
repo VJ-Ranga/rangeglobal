@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Study Destinations — Range Global Education</title>
-<meta name="description" content="Compare programmes and opportunities across Malta, Malaysia, Ireland, the Netherlands, the United States, New Zealand, Canada and Georgia.">
+<title>University — Range Global Education</title>
+<meta name="description" content="Location, accreditation, intake periods and programmes offered at this partner institution.">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css?v=5">
 </head>
-<body>
+<body data-dd="university">
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div class="loader">
@@ -37,16 +37,10 @@
     <nav class="nav-links" aria-label="Main">
       <a href="../index.html">Home</a>
       <a href="about.html">About Us</a>
-      <div class="nav-item has-submenu">
-        <a href="student-services.html" class="active">Study Abroad <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
-        <div class="submenu">
-          <a href="student-services.html">Student Services</a>
-          <a href="study-destinations.html" class="active">Study Destinations</a>
-          <a href="university-partnerships.html">University Partnerships</a>
-          <a href="success-stories.html">Success Stories</a>
-        </div>
-      </div>
-      <a href="resources.html">Resources</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="universities.html" class="active">Universities</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="success-stories.html">Success Stories</a>
     </nav>
     <div class="nav-right">
       <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Start Your Journey</a>
@@ -61,12 +55,10 @@
   <div class="container">
     <a href="../index.html">Home</a>
     <a href="about.html">About Us</a>
-    <div class="mobile-group">Study Abroad</div>
-    <a href="student-services.html" class="mobile-sub-link">Student Services</a>
-    <a href="study-destinations.html" class="mobile-sub-link active">Study Destinations</a>
-    <a href="university-partnerships.html" class="mobile-sub-link">University Partnerships</a>
-    <a href="success-stories.html" class="mobile-sub-link">Success Stories</a>
-    <a href="resources.html">Resources</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="universities.html" class="active">Universities</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="success-stories.html">Success Stories</a>
     <a href="contact.html" class="btn btn-primary">Start Your Journey</a>
   </div>
 </div>
@@ -75,60 +67,23 @@
 
   <section class="page-hero">
     <div class="container">
-      <div class="eyebrow on-dark">Study Destinations</div>
-      <h1 class="h-xl">Education Beyond Borders</h1>
-      <p>Range Global Education connects students with higher education opportunities across established international study destinations.</p>
-      <div class="crumb"><a href="../index.html">Home</a><span class="sep">/</span>For Students<span class="sep">/</span>Study Destinations</div>
+      <div class="eyebrow on-dark" id="dd-eyebrow">Loading</div>
+      <h1 class="h-xl" id="dd-title">&nbsp;</h1>
+      <p id="dd-lead"></p>
+      <div class="crumb" id="dd-crumb"></div>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">Approved Destinations</div>
-        <h2 class="h-lg">Eight destinations, one point of contact</h2>
-        <p>International applicants can compare programmes and opportunities across Malta, Malaysia, Ireland, the Netherlands, the United States, New Zealand, Canada, and Georgia through a single point of contact.</p>
-      </div>
-      <div class="dest-grid stagger">
-        <div class="dest-card dest-malta"><div class="dest-body"><h3>Malta</h3><div class="dest-meta">Direct collaborations</div></div></div>
-        <div class="dest-card dest-malaysia"><div class="dest-body"><h3>Malaysia</h3><div class="dest-meta">Direct collaborations</div></div></div>
-        <div class="dest-card dest-ireland"><div class="dest-body"><h3>Ireland</h3><div class="dest-meta">Recruitment partnerships</div></div></div>
-        <div class="dest-card dest-netherlands"><div class="dest-body"><h3>Netherlands</h3><div class="dest-meta">Recruitment partnerships</div></div></div>
-        <div class="dest-card dest-united-states"><div class="dest-body"><h3>United States</h3><div class="dest-meta">Recruitment partnerships</div></div></div>
-        <div class="dest-card dest-new-zealand"><div class="dest-body"><h3>New Zealand</h3><div class="dest-meta">Direct collaborations</div></div></div>
-        <div class="dest-card dest-canada"><div class="dest-body"><h3>Canada</h3><div class="dest-meta">Approved destination</div></div></div>
-        <div class="dest-card dest-georgia"><div class="dest-body"><h3>Georgia</h3><div class="dest-meta">Direct collaborations</div></div></div>
-      </div>
-      <div class="placeholder-note reveal" style="margin-top:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <span>Demo note — destination names are confirmed. Per-destination detail (overview, visa notes, cost guidance, intakes, work rights and entry requirements) is waiting on client content and has deliberately not been invented.</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-dark">
-    <div class="container">
-      <div class="split">
-        <div class="reveal">
-          <div class="eyebrow on-dark">Global Reach</div>
-          <h2 class="h-lg">How students are matched to institutions</h2>
-          <p style="margin-top:18px; font-size:16px;">Where appropriate, students are guided towards institutions that best align with their academic background, career objectives, and preferred study destination.</p>
-        </div>
-        <div class="reveal">
-          <p style="font-size:15.5px;">Alongside our direct university collaborations, Range Global Education has access to a broader international network of higher education institutions through authorised global recruitment partnerships.</p>
-          <a href="university-partnerships.html" class="btn btn-outline-light" style="margin-top:26px;">View University Partnerships <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="dd-body"></section>
 
   <section class="cta-band">
     <div class="container">
       <div>
-        <h2 class="h-lg">Not sure which destination fits?</h2>
-        <p>Our discussions begin with your academic objectives and long-term aspirations before exploring programme options.</p>
+        <h2 class="h-lg">Ready to take the next step?</h2>
+        <p>Talk to us about entry requirements, intakes and the application process.</p>
       </div>
       <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-outline-light">Talk To Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="contact.html" class="btn btn-outline-light">Contact Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -150,15 +105,15 @@
         <h3>Explore</h3>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="student-services.html">Student Services</a></li>
-          <li><a href="study-destinations.html">Study Destinations</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
           <li><a href="success-stories.html">Success Stories</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h3>Partnerships</h3>
         <ul>
-          <li><a href="university-partnerships.html">University Partnerships</a></li>
+          <li><a href="universities.html">Universities</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -187,5 +142,6 @@
 </button>
 
 <script src="../assets/js/main.js?v=5"></script>
+<script src="../assets/js/data.js?v=5"></script>\n<script src="../assets/js/drilldown.js?v=5"></script>
 </body>
 </html>
