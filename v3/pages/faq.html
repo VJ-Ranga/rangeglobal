@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resources — Range Global Education</title>
-<meta name="description" content="Events and webinars, news and updates, and FAQ from Range Global Education.">
+<title>FAQ — Range Global Education</title>
+<meta name="description" content="Frequently asked questions about study destinations, costs, accommodation, safety, intakes and pre-departure support from Range Global Education.">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -12,6 +12,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css?v=8">
+<style>
+  .faq-layout{ display:grid; grid-template-columns:320px minmax(0,1fr); gap:48px; align-items:start; }
+  .faq-aside{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px 28px; position:sticky; top:calc(var(--header-h) + 22px); }
+  .faq-aside p{ color:var(--mid-gray); font-size:14.5px; margin-top:12px; }
+  .faq-list{ display:flex; flex-direction:column; gap:14px; }
+  .faq-item{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:border-color .22s var(--ease), box-shadow .22s var(--ease); }
+  .faq-item:hover{ border-color:#d8d0c4; box-shadow:0 14px 32px rgba(10,10,10,.07); }
+  .faq-item[open]{ border-color:var(--red-dark); box-shadow:0 16px 36px rgba(10,10,10,.08); }
+  .faq-item summary{ display:flex; gap:18px; align-items:flex-start; justify-content:space-between; padding:22px 24px; cursor:pointer; color:var(--ink); font-weight:600; line-height:1.45; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; width:28px; height:28px; border-radius:50%; background:var(--red-tint); color:var(--red-dark); display:flex; align-items:center; justify-content:center; flex:0 0 auto; font-weight:700; line-height:1; }
+  .faq-item[open] summary::after{ content:"-"; background:var(--red-dark); color:#fff; }
+  .faq-answer{ padding:0 24px 24px; color:var(--mid-gray); font-size:15px; line-height:1.72; }
+  @media (max-width:900px){ .faq-layout{ grid-template-columns:1fr; gap:28px; } .faq-aside{ position:static; } }
+  @media (max-width:560px){ .faq-item summary{ padding:20px; } .faq-answer{ padding:0 20px 22px; } }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -75,39 +91,64 @@
 
   <section class="page-hero">
     <div class="container">
-      <div class="eyebrow on-dark">Resources</div>
-      <h1 class="h-xl">Continuous Learning</h1>
-      <p>We embrace change in global education trends, technology, regulations and institutional requirements to remain responsive in a rapidly evolving environment.</p>
-      <div class="crumb"><a href="../index.html">Home</a><span class="sep">/</span>Resources</div>
+      <div class="eyebrow on-dark">FAQ</div>
+      <h1 class="h-xl">Study Destination Questions</h1>
+      <p>Answers to the common questions students ask when comparing study destinations, costs, accommodation, safety and support.</p>
+      <div class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="resources.html">Resources</a><span class="sep">/</span>FAQ</div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">Resource Center</div>
-        <h2 class="h-lg">Events, news and FAQs</h2>
-        <p>Browse student information sessions, education updates and frequently asked questions from Range Global Education.</p>
-      </div>
-      <div class="grid g-3 stagger">
-        <a class="res-card" id="events" href="events.html">
-          <h3>Events &amp; Webinars</h3>
-          <p>Information sessions and webinars for applicants, families and university partners.</p>
-          <div class="res-foot"><span class="tag tag-red">View Archive</span></div>
-        </a>
-        <a class="res-card" id="news" href="news.html">
-          <h3>News &amp; Updates</h3>
-          <p>Announcements from Range Global Education and sample updates for students exploring study abroad.</p>
-          <div class="res-foot"><span class="tag tag-red">View Archive</span></div>
-        </a>
-        <a class="res-card" id="faq" href="faq.html">
-          <h3>FAQ</h3>
-          <p>Answers to the common questions applicants ask about study destinations, costs, accommodation, safety, intakes and pre-departure support.</p>
-          <div class="res-foot"><span class="tag tag-red">Read FAQ</span></div>
-        </a>
-      </div>
-      <div class="placeholder-note reveal" style="margin-top:32px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <span>Demo note — FAQ content has been supplied by the client. Events and news archive entries are demo content created to complete this preview and should be replaced with client-approved items before launch.</span>
+      <div class="faq-layout">
+        <aside class="faq-aside reveal" aria-label="FAQ category">
+          <div class="eyebrow">FAQ 1</div>
+          <h2 class="h-md">Study Destination</h2>
+          <p>This section uses the client-approved Study Destination FAQ content. Visa, scholarship, application and partner-specific FAQs can be added when those answers are supplied.</p>
+        </aside>
+
+        <div class="faq-list reveal">
+          <details class="faq-item" open>
+            <summary>Which country is best for studying abroad?</summary>
+            <div class="faq-answer">The ideal destination depends on your academic goals, career plans, budget, preferred lifestyle, and future opportunities. Our counselors will help you choose the destination that best suits your needs.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Which countries do you assist students with?</summary>
+            <div class="faq-answer">We provide guidance for a wide range of popular study destinations, including Malta, Ireland, Netherlands, the United Kingdom, Canada, New Zealand, United States, Georgia &amp; Malaysia.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How much does it cost to study abroad?</summary>
+            <div class="faq-answer">Costs vary by country, university, programme, and city. Expenses typically include tuition fees, accommodation, living expenses, health insurance, and travel costs.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I bring my spouse or family while studying?</summary>
+            <div class="faq-answer">Some countries allow eligible international students to bring their spouse and dependent children, subject to the country's immigration and visa regulations.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Is accommodation available for international students?</summary>
+            <div class="faq-answer">Yes. Most universities can assist students in finding suitable off-campus housing.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Is it safe to study abroad?</summary>
+            <div class="faq-answer">Most popular study destinations provide safe and welcoming environments for international students. We also provide pre-departure guidance to help students prepare for living overseas.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I stay and work after graduation?</summary>
+            <div class="faq-answer">Many countries offer post-study work opportunities for eligible graduates. The duration and eligibility requirements vary depending on the destination and current immigration policies.</div>
+          </details>
+          <details class="faq-item">
+            <summary>What intakes are available?</summary>
+            <div class="faq-answer">Most universities offer multiple intakes each year, commonly in January/February, May/June, and September/October, although availability varies by institution and country.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Will I receive support before I travel?</summary>
+            <div class="faq-answer">Yes. We provide comprehensive pre-departure support, including visa guidance, accommodation advice, travel preparation, and information about settling into your new destination.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Why should I use an education consultancy?</summary>
+            <div class="faq-answer">An experienced education consultancy can simplify the application process by helping you select the right university and programme, prepare your application, apply for scholarships, obtain your student visa, and support you from application through to arrival in your study destination.</div>
+          </details>
+        </div>
       </div>
     </div>
   </section>
@@ -115,8 +156,8 @@
   <section class="cta-band">
     <div class="container">
       <div>
-        <h2 class="h-lg">Have a question we haven't covered?</h2>
-        <p>Connect with Range Global Education and we will guide you through the process.</p>
+        <h2 class="h-lg">Need destination advice?</h2>
+        <p>Speak with Range Global Education and compare your options with a counselor.</p>
       </div>
       <div style="display:flex; gap:14px; flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-outline-light">Contact Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

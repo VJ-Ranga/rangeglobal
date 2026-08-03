@@ -530,6 +530,7 @@ section{ padding:104px 0; }
 .res-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(10,10,10,.09); }
 .res-card h3{ font-size:18px; }
 .res-card p{ font-size:14px; color:var(--mid-gray); flex:1; }
+.res-card > .tag{ align-self:flex-start; }
 .res-card .res-foot{ padding-top:14px; border-top:1px solid var(--line); }
 
 /* ---------- forms ---------- */
