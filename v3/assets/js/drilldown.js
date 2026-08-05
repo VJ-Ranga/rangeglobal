@@ -1,7 +1,7 @@
 /* ===========================================================
-   Range Global Education — Destination / University / Program renderers
+   Range Global Education — Destination / university list renderers
    Reads RG_DATA (assets/js/data.js) and fills the page shell from the
-   ?c= / ?u= / ?p= query parameter.
+   ?c= query parameter. Universities are displayed as non-clickable cards.
    =========================================================== */
 (function () {
   var D = window.RG_DATA;
@@ -29,21 +29,6 @@
     set('dd-body', '<div class="container"><a class="btn btn-outline" href="' + backHref + '">Back to ' + backLabel + ' ' + ARROW + '</a></div>');
   }
 
-  function factCard(label, value) {
-    return '<div class="fact"><div class="fact-label">' + esc(label) + '</div>' +
-           '<div class="fact-value">' + esc(value) + '</div></div>';
-  }
-
-  function sampleBadge() {
-    return '<span class="tag tag-pending">Sample detail</span>';
-  }
-
-  function sampleNotice(text) {
-    return '<div class="placeholder-note" style="margin-bottom:30px;">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>' +
-      '<span>' + text + '</span></div>';
-  }
-
   // ---------------------------------------------------------------- DESTINATION
   function renderDestination() {
     var d = D.findDestination(param('c'));
@@ -60,11 +45,10 @@
     var listHtml;
     if (unis.length) {
       listHtml = '<ul class="row-list">' + unis.map(function (u) {
-        return '<li><a class="row-item" href="university.html?u=' + esc(u.slug) + '">' +
+        return '<li><div class="row-item">' +
           '<span class="row-main"><strong>' + esc(u.name) + '</strong>' +
-          '<small>' + esc(u.city) + ' · ' + esc(u.type) + '</small></span>' +
-          '<span class="tag tag-red">Direct partner</span>' +
-          '<span class="row-go">' + ARROW + '</span></a></li>';
+          '<small>Confirmed institution</small></span>' +
+          '<span class="tag tag-red">Listed partner</span></div></li>';
       }).join('') + '</ul>';
     } else {
       listHtml = '<div class="placeholder-note">' +
@@ -82,102 +66,12 @@
             listHtml +
           '</div>' +
           '<aside class="dd-aside">' +
-            '<h3>Country notes</h3>' +
-            '<div class="aside-row"><span class="aside-label">Visa</span><p>' + esc(d.notes.visa) + '</p></div>' +
-            '<div class="aside-row"><span class="aside-label">Cost of living</span><p>' + esc(d.notes.cost) + '</p></div>' +
-            '<div class="aside-row"><span class="aside-label">Intakes</span><p>' + esc(d.notes.intakes) + '</p></div>' +
-            '<div style="margin-top:8px;">' + sampleBadge() + '</div>' +
+            '<h3>How we help</h3>' +
+            '<div class="aside-row"><span class="aside-label">Shortlist</span><p>Shortlist suitable institutions based on your academic background and study goals.</p></div>' +
+            '<div class="aside-row"><span class="aside-label">Check</span><p>Check current entry options and application requirements before you apply.</p></div>' +
+            '<div class="aside-row"><span class="aside-label">Guide</span><p>Guide documents and application steps with a clear process from enquiry to submission.</p></div>' +
+            '<div class="aside-row"><span class="aside-label">Prepare</span><p>Prepare for visa and pre-departure stages after an offer is received.</p></div>' +
             '<a class="btn btn-primary" style="width:100%; margin-top:20px;" href="contact.html">Ask about ' + esc(d.name) + ' ' + ARROW + '</a>' +
-          '</aside>' +
-        '</div>' +
-      '</div>');
-  }
-
-  // ---------------------------------------------------------------- UNIVERSITY
-  function renderUniversity() {
-    var hit = D.findUniversity(param('u'));
-    if (!hit) return notFound('University', 'universities.html', 'Universities');
-    var u = hit.university, d = hit.destination;
-
-    title(u.name);
-    set('dd-eyebrow', 'Direct Partner University');
-    set('dd-title', esc(u.name));
-    set('dd-lead', esc(u.city) + ' · ' + esc(u.type));
-    set('dd-crumb', '<a href="../index.html">Home</a><span class="sep">/</span>' +
-      '<a href="destinations.html">Destinations</a><span class="sep">/</span>' +
-      '<a href="destination.html?c=' + esc(d.slug) + '">' + esc(d.name) + '</a><span class="sep">/</span>' + esc(u.name));
-
-    var progs = u.programs || [];
-    var progHtml = progs.length
-      ? '<ul class="row-list">' + progs.map(function (p) {
-          return '<li><a class="row-item" href="program.html?p=' + esc(p.slug) + '">' +
-            '<span class="row-main"><strong>' + esc(p.name) + '</strong>' +
-            '<small>' + esc(p.level) + ' · ' + esc(p.duration) + '</small></span>' +
-            (p.sample ? sampleBadge() : '') +
-            '<span class="row-go">' + ARROW + '</span></a></li>';
-        }).join('') + '</ul>'
-      : '<p class="lead">Programme list awaiting confirmation from the institution.</p>';
-
-    set('dd-body',
-      '<div class="container">' +
-        '<div class="dd-layout">' +
-          '<div>' +
-            '<div class="eyebrow">Overview</div>' +
-            '<div class="fact-grid">' +
-              factCard('Location', u.city) +
-              factCard('Type', u.type) +
-              factCard('Accreditation', u.accreditation) +
-              factCard('Intake periods', u.intakes) +
-            '</div>' +
-            '<div class="eyebrow" style="margin-top:44px;">Programmes offered</div>' +
-            sampleNotice('Programme names, durations, tuition and entry requirements shown here are <strong>sample data</strong> for demo purposes. They will be replaced with the institution\\u2019s confirmed course details.') +
-            progHtml +
-          '</div>' +
-          '<aside class="dd-aside">' +
-            '<h3>Interested in this university?</h3>' +
-            '<p>Talk to a counsellor about entry requirements, deadlines and how to apply through Range Global Education.</p>' +
-            '<a class="btn btn-primary" style="width:100%; margin-top:18px;" href="contact.html">Start your application ' + ARROW + '</a>' +
-            '<a class="btn btn-outline" style="width:100%; margin-top:10px;" href="destination.html?c=' + esc(d.slug) + '">More in ' + esc(d.name) + '</a>' +
-          '</aside>' +
-        '</div>' +
-      '</div>');
-  }
-
-  // ---------------------------------------------------------------- PROGRAM
-  function renderProgram() {
-    var hit = D.findProgram(param('p'));
-    if (!hit) return notFound('Programme', 'destinations.html', 'Destinations');
-    var p = hit.program, u = hit.university, d = hit.destination;
-
-    title(p.name);
-    set('dd-eyebrow', esc(p.level) + ' Programme');
-    set('dd-title', esc(p.name));
-    set('dd-lead', esc(u.name) + ' · ' + esc(d.name));
-    set('dd-crumb', '<a href="../index.html">Home</a><span class="sep">/</span>' +
-      '<a href="destinations.html">Destinations</a><span class="sep">/</span>' +
-      '<a href="destination.html?c=' + esc(d.slug) + '">' + esc(d.name) + '</a><span class="sep">/</span>' +
-      '<a href="university.html?u=' + esc(u.slug) + '">' + esc(u.name) + '</a><span class="sep">/</span>' + esc(p.name));
-
-    set('dd-body',
-      '<div class="container">' +
-        '<div class="dd-layout">' +
-          '<div>' +
-            (p.sample ? sampleNotice('<strong>Sample programme.</strong> Tuition, requirements and intake dates shown here are illustrative and will be replaced with the university\\u2019s confirmed course details.') : '') +
-            '<div class="eyebrow">Programme details</div>' +
-            '<div class="fact-grid">' +
-              factCard('Level', p.level) +
-              factCard('Duration', p.duration) +
-              factCard('Tuition', p.tuition) +
-              factCard('Intakes', p.intakes) +
-            '</div>' +
-            '<div class="eyebrow" style="margin-top:44px;">Entry requirements</div>' +
-            '<p class="lead">' + esc(p.requirements) + '</p>' +
-          '</div>' +
-          '<aside class="dd-aside">' +
-            '<h3>Apply through Range Global</h3>' +
-            '<p>Our counsellors handle your application, documentation and visa process for this programme from start to finish.</p>' +
-            '<a class="btn btn-primary" style="width:100%; margin-top:18px;" href="contact.html">Start my application ' + ARROW + '</a>' +
-            '<a class="btn btn-outline" style="width:100%; margin-top:10px;" href="university.html?u=' + esc(u.slug) + '">Back to ' + esc(u.name) + '</a>' +
           '</aside>' +
         '</div>' +
       '</div>');
@@ -210,19 +104,15 @@
           '<div class="country-label">' + esc(d.name) +
             '<span>' + d.universities.length + ' institution' + (d.universities.length === 1 ? '' : 's') + '</span></div>' +
           '<div class="uni-grid">' + d.universities.map(function (u) {
-            return '<a class="uni-card" href="university.html?u=' + esc(u.slug) + '">' +
+            return '<div class="uni-card">' +
               '<strong>' + esc(u.name) + '</strong>' +
-              '<small>' + esc(u.city) + '</small>' +
-              '<span class="uni-type">' + esc(u.type) + '</span>' +
-              '<span class="uni-go">' + ARROW + '</span></a>';
+              '<small>Confirmed institution</small></div>';
           }).join('') + '</div></div>';
       }).join('');
   }
 
   var page = document.body.getAttribute('data-dd');
   if (page === 'destination') renderDestination();
-  else if (page === 'university') renderUniversity();
-  else if (page === 'program') renderProgram();
   renderDestinationIndex();
   renderUniversityIndex();
 })();
