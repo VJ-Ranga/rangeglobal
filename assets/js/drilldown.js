@@ -51,7 +51,7 @@
         return '<li><div class="row-item">' +
           '<span class="row-main"><strong>' + esc(u.name) + '</strong>' +
           '<small>' + esc(u.city) + '</small><small>' + esc(u.type) + '</small></span>' +
-          '<span class="tag tag-red">Listed partner</span>' + officialLink(u) + '</div></li>';
+          officialLink(u) + '</div></li>';
       }).join('') + '</ul>';
     } else {
       listHtml = '<div class="placeholder-note">' +
