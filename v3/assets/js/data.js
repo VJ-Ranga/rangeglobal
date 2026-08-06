@@ -23,7 +23,7 @@
 
   var destinations = [
     {
-      slug: 'malta', name: 'Malta', tag: 'Direct collaborations', confirmed: true, needsPhoto: true,
+      slug: 'malta', name: 'Malta', tag: 'Direct collaborations', confirmed: true,
       flag: '🇲🇹', intro: 'Seven direct partner institutions, English-taught programmes inside the EU.',
       blurb: 'Our largest group of direct university collaborations. English-taught programmes inside the EU, with seven partner institutions across the island.',
       notes: {
@@ -32,45 +32,45 @@
         intakes: 'Most partners run February and September intakes.'
       },
       universities: [
-        { slug: 'global-college-malta', name: 'Global College Malta', city: 'St Julian’s, Malta', type: 'Higher Education College',
+        { slug: 'global-college-malta', name: 'Global College Malta', city: 'St Julian’s, Malta', type: 'Higher Education College', website: 'https://gcm.edu.mt/',
           accreditation: 'MFHEA accredited', intakes: 'January, September',
           programs: s([
             { slug: 'gcm-foundation-business-it', name: 'Foundation in Business & IT', level: 'Foundation', duration: '8 months', tuition: 'EUR 3,800 – 4,200', requirements: 'O/L pass, IELTS 5.0', intakes: 'Jan, Sep' },
             { slug: 'gcm-bsc-business', name: 'BSc (Hons) Business Management', level: 'Bachelor', duration: '3 years', tuition: 'EUR 6,800 – 7,600 / year', requirements: 'A/L pass or equivalent, IELTS 6.0', intakes: 'Sep' },
             { slug: 'gcm-bsc-computing', name: 'BSc Computing', level: 'Bachelor', duration: '3 years', tuition: 'EUR 6,800 – 7,600 / year', requirements: 'A/L pass with Maths, IELTS 6.0', intakes: 'Sep' }
           ]) },
-        { slug: 'ascencia-malta', name: 'Ascencia Malta', city: 'Naxxar, Malta', type: 'Private Business School',
+        { slug: 'ascencia-malta', name: 'Ascencia Malta', city: 'Naxxar, Malta', type: 'Private Business School', website: 'https://www.ascenciamalta.edu.mt/',
           accreditation: 'MFHEA accredited', intakes: 'February, September',
           programs: s([
             { slug: 'asc-bsc-business-management', name: 'BSc (Hons) Business Management', level: 'Bachelor', duration: '3 years', tuition: 'EUR 6,500 – 7,500 / year', requirements: 'A/L pass or equivalent, IELTS 6.0', intakes: 'Feb, Sep' },
             { slug: 'asc-mba-international-business', name: 'MBA International Business', level: 'Master', duration: '18 months', tuition: 'EUR 8,000 – 9,000 total', requirements: 'Bachelor’s degree, IELTS 6.5', intakes: 'Sep' },
             { slug: 'asc-diploma-hospitality', name: 'Diploma in Hospitality Management', level: 'Diploma', duration: '1 year', tuition: 'EUR 4,500 – 5,200', requirements: 'A/L pass or equivalent, IELTS 5.5', intakes: 'Feb, Sep' }
           ]) },
-        { slug: 'gbsb-global', name: 'GBSB Global Business School', city: 'Valletta, Malta', type: 'Private Business School',
+        { slug: 'gbsb-global', name: 'GBSB Global Business School', city: 'Valletta, Malta', type: 'Private Business School', website: 'https://www.global-business-school.org/gbsb-global-business-school-malta/',
           accreditation: 'MFHEA accredited', intakes: 'January, April, October',
           programs: s([
             { slug: 'gbsb-bba-digital', name: 'BBA in Digital Business', level: 'Bachelor', duration: '3 years', tuition: 'EUR 8,500 – 9,500 / year', requirements: 'A/L pass or equivalent, IELTS 6.0', intakes: 'Jan, Oct' },
             { slug: 'gbsb-msc-digital-marketing', name: 'MSc Digital Marketing', level: 'Master', duration: '1 year', tuition: 'EUR 9,000 – 10,500 total', requirements: 'Bachelor’s degree, IELTS 6.5', intakes: 'Jan, Apr, Oct' }
           ]) },
-        { slug: 'learnkey-institute', name: 'Learnkey Institute', city: 'Sliema, Malta', type: 'Private Institute',
+        { slug: 'learnkey-institute', name: 'Learnkey Institute', city: 'Sliema, Malta', type: 'Private Institute', website: 'https://www.learnkey.com.mt/',
           accreditation: 'MFHEA accredited', intakes: 'February, September',
           programs: s([
             { slug: 'lk-diploma-digital-marketing', name: 'Diploma in Digital Marketing', level: 'Diploma', duration: '1 year', tuition: 'EUR 4,200 – 4,800', requirements: 'A/L pass, IELTS 5.5', intakes: 'Feb, Sep' },
             { slug: 'lk-adv-diploma-it', name: 'Advanced Diploma in Information Technology', level: 'Diploma', duration: '18 months', tuition: 'EUR 5,400 – 6,000', requirements: 'A/L pass (Maths preferred), IELTS 5.5', intakes: 'Sep' }
           ]) },
-        { slug: 'la-vallette-institute', name: 'La Vallette Institute', city: 'Valletta, Malta', type: 'Private Institute',
+        { slug: 'la-vallette-institute', name: 'La Vallette Institute', city: 'Valletta, Malta', type: 'Private Institute', website: 'https://www.lavaletteinstitute.com/',
           accreditation: 'MFHEA accredited', intakes: 'February, September',
           programs: s([
             { slug: 'lv-diploma-business-admin', name: 'Diploma in Business Administration', level: 'Diploma', duration: '1 year', tuition: 'EUR 4,000 – 4,600', requirements: 'A/L pass, IELTS 5.5', intakes: 'Feb, Sep' },
             { slug: 'lv-cert-english', name: 'Certificate in English for Academic Purposes', level: 'Certificate', duration: '6 months', tuition: 'EUR 2,400 – 2,900', requirements: 'O/L pass', intakes: 'Rolling' }
           ]) },
-        { slug: 'idea-college', name: 'Idea College', city: 'Msida, Malta', type: 'Higher Education College',
+        { slug: 'idea-college', name: 'Idea College', city: 'Msida, Malta', type: 'Higher Education College', website: 'https://ideaeducation.com/',
           accreditation: 'MFHEA accredited', intakes: 'February, October',
           programs: s([
             { slug: 'idea-diploma-computing', name: 'Diploma in Computing', level: 'Diploma', duration: '1 year', tuition: 'EUR 4,300 – 4,900', requirements: 'A/L pass, IELTS 5.5', intakes: 'Feb, Oct' },
             { slug: 'idea-bsc-software', name: 'BSc Software Development', level: 'Bachelor', duration: '3 years', tuition: 'EUR 7,000 – 7,800 / year', requirements: 'A/L pass with Maths, IELTS 6.0', intakes: 'Oct' }
           ]) },
-        { slug: 'training-three-sixty', name: 'Training Three Sixty', city: 'Birkirkara, Malta', type: 'Vocational Training Institute',
+        { slug: 'training-three-sixty', name: 'Training Three Sixty', city: 'Birkirkara, Malta', type: 'Vocational Training Institute', website: 'https://training360.com.mt/',
           accreditation: 'MFHEA accredited', intakes: 'Rolling',
           programs: s([
             { slug: 't360-cert-hospitality', name: 'Certificate in Hospitality Operations', level: 'Certificate', duration: '6 months', tuition: 'EUR 2,600 – 3,100', requirements: 'O/L pass, IELTS 5.0', intakes: 'Rolling' },
@@ -89,13 +89,13 @@
         intakes: 'February and July are the main intakes.'
       },
       universities: [
-        { slug: 'nzse', name: 'NZSE', city: 'Auckland, New Zealand', type: 'Private Training Establishment',
+        { slug: 'nzse', name: 'NZSE', city: 'Auckland, New Zealand', type: 'Private Training Establishment', website: 'https://nzse.ac.nz/',
           accreditation: 'NZQA registered', intakes: 'February, July',
           programs: s([
             { slug: 'nzse-diploma-business', name: 'New Zealand Diploma in Business', level: 'Diploma', duration: '2 years', tuition: 'NZD 17,000 – 19,500 / year', requirements: 'A/L pass, IELTS 6.0', intakes: 'Feb, Jul' },
             { slug: 'nzse-cert-construction', name: 'Certificate in Construction Trade Skills', level: 'Certificate', duration: '1 year', tuition: 'NZD 15,000 – 17,000', requirements: 'O/L pass, IELTS 5.5', intakes: 'Feb, Jul' }
           ]) },
-        { slug: 'international-college-auckland', name: 'International College of Auckland', city: 'Auckland, New Zealand', type: 'Private Tertiary Institution',
+        { slug: 'international-college-auckland', name: 'International College of Auckland', city: 'Auckland, New Zealand', type: 'Private Tertiary Institution', website: 'https://ica.ac.nz/',
           accreditation: 'NZQA registered', intakes: 'February, July, October',
           programs: s([
             { slug: 'ica-diploma-it', name: 'Diploma in Information Technology', level: 'Diploma', duration: '2 years', tuition: 'NZD 18,000 – 20,000 / year', requirements: 'A/L pass, IELTS 6.0', intakes: 'Feb, Jul' },
@@ -105,7 +105,7 @@
     },
 
     {
-      slug: 'georgia', name: 'Georgia', tag: 'Direct collaboration', confirmed: true, needsPhoto: true,
+      slug: 'georgia', name: 'Georgia', tag: 'Direct collaboration', confirmed: true,
       flag: '🇬🇪', intro: 'English-taught medical and business degrees at lower tuition than most of Europe.',
       blurb: 'A direct collaboration with Alte University in Tbilisi, offering English-taught degrees at lower tuition than most European destinations.',
       notes: {
@@ -114,7 +114,7 @@
         intakes: 'September, with a smaller February intake.'
       },
       universities: [
-        { slug: 'alte-university', name: 'Alte University', city: 'Tbilisi, Georgia', type: 'Private University',
+        { slug: 'alte-university', name: 'Alte University', city: 'Tbilisi, Georgia', type: 'Private University', website: 'https://alte.edu.ge/en/',
           accreditation: 'Authorised by the National Center for Educational Quality Enhancement', intakes: 'February, September',
           programs: s([
             { slug: 'alte-md', name: 'Doctor of Medicine (MD)', level: 'Bachelor', duration: '6 years', tuition: 'USD 6,000 – 8,000 / year', requirements: 'A/L Biology & Chemistry, IELTS 6.0', intakes: 'Sep' },
@@ -134,7 +134,7 @@
         intakes: 'January, May and September.'
       },
       universities: [
-        { slug: 'inti-international-university', name: 'INTI International University', city: 'Nilai, Malaysia', type: 'Private University',
+        { slug: 'inti-international-university', name: 'INTI International University', city: 'Nilai, Malaysia', type: 'Private University', website: 'https://newinti.edu.my/',
           accreditation: 'MQA accredited', intakes: 'January, May, September',
           programs: s([
             { slug: 'inti-bba', name: 'Bachelor of Business Administration', level: 'Bachelor', duration: '3 years', tuition: 'MYR 32,000 – 38,000 / year', requirements: 'A/L pass, IELTS 5.5', intakes: 'Jan, May, Sep' },

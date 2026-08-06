@@ -18,6 +18,9 @@
   function el(id) { return document.getElementById(id); }
   function set(id, html) { var n = el(id); if (n) n.innerHTML = html; }
   function title(t) { document.title = t + ' — Range Global Education'; }
+  function officialLink(u) {
+    return u.website ? '<a class="official-link" href="' + esc(u.website) + '" target="_blank" rel="noopener noreferrer">Official Website</a>' : '';
+  }
 
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
@@ -47,8 +50,8 @@
       listHtml = '<ul class="row-list">' + unis.map(function (u) {
         return '<li><div class="row-item">' +
           '<span class="row-main"><strong>' + esc(u.name) + '</strong>' +
-          '<small>Confirmed institution</small></span>' +
-          '<span class="tag tag-red">Listed partner</span></div></li>';
+          '<small>' + esc(u.city) + '</small><small>' + esc(u.type) + '</small></span>' +
+          '<span class="tag tag-red">Listed partner</span>' + officialLink(u) + '</div></li>';
       }).join('') + '</ul>';
     } else {
       listHtml = '<div class="placeholder-note">' +
@@ -105,7 +108,9 @@
           '<div class="uni-grid">' + d.universities.map(function (u) {
             return '<div class="uni-card">' +
               '<strong>' + esc(u.name) + '</strong>' +
-              '<small>Confirmed institution</small></div>';
+              '<small>' + esc(u.city) + '</small>' +
+              '<div class="uni-type">' + esc(u.type) + '</div>' +
+              officialLink(u) + '</div>';
           }).join('') + '</div></div>';
       }).join('');
   }

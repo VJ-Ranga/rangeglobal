@@ -382,14 +382,14 @@ section{ padding:104px 0; }
 .dest-card .dest-body{ position:relative; z-index:1; padding:22px; width:100%; }
 .dest-card h3{ color:#fff; font-size:20px; font-weight:600; }
 .dest-card .dest-meta{ font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.9); margin-top:6px; font-weight:500; }
-.dest-malta{ background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80'); }
+.dest-malta{ background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Valletta_Skyline_-_panoramio.jpg?width=900'); }
 .dest-malaysia{ background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=80'); }
 .dest-ireland{ background-image:url('https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=900&q=80'); }
 .dest-netherlands{ background-image:url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=900&q=80'); }
 .dest-united-states{ background-image:url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80'); }
 .dest-new-zealand{ background-image:url('https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=900&q=80'); }
 .dest-canada{ background-image:url('https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=900&q=80'); }
-.dest-georgia{ background-image:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=900&q=80'); }
+.dest-georgia{ background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/City_skyline%2C_Tbilisi_-_panoramio.jpg?width=900'); }
 
 /* country card — photo on top with a flag, white body beneath.
    Replaces the text-over-photo treatment: the description needs a solid
@@ -462,6 +462,12 @@ section{ padding:104px 0; }
 .row-go{ color:var(--red); display:flex; flex:0 0 auto; }
 .row-go svg{ width:17px; height:17px; transition:transform .22s var(--ease); }
 .row-item:hover .row-go svg{ transform:translateX(4px); }
+.official-link{
+  align-self:flex-start; margin-top:12px; color:var(--red-dark); font-size:12px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid currentColor;
+}
+.official-link:hover{ color:var(--red); }
+.official-link:focus-visible{ outline:3px solid rgba(183, 28, 28, .18); outline-offset:4px; border-radius:4px; }
 @media (max-width:560px){
   .row-item{ flex-wrap:wrap; gap:10px; }
   .row-main{ flex:1 0 100%; }
