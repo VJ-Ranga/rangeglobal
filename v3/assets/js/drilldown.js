@@ -86,7 +86,6 @@
       return '<a class="country-card" href="destination.html?c=' + esc(d.slug) + '">' +
         '<div class="' + photoCls + '">' +
           '<span class="country-flag">' + esc(d.flag) + '</span>' +
-          (d.needsPhoto ? '<span class="photo-pending">Photo to be supplied</span>' : '') +
         '</div>' +
         '<div class="country-body">' +
           '<h3>' + esc(d.name) + '</h3>' +
