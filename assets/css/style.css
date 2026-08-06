@@ -221,7 +221,7 @@ strong,b{ font-weight:600; color:var(--ink); }
 }
 .hero-bg{
   position:absolute; inset:0;
-  background:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=82') center/cover no-repeat;
+  background:url('../img/backgrounds/hero-students.jpg') center/cover no-repeat;
   transform:scale(1.06); animation:heroZoom 14s var(--ease) forwards;
 }
 @keyframes heroZoom{ to{ transform:scale(1); } }
@@ -382,14 +382,14 @@ section{ padding:104px 0; }
 .dest-card .dest-body{ position:relative; z-index:1; padding:22px; width:100%; }
 .dest-card h3{ color:#fff; font-size:20px; font-weight:600; }
 .dest-card .dest-meta{ font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.9); margin-top:6px; font-weight:500; }
-.dest-malta{ background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Valletta_Skyline_-_panoramio.jpg?width=900'); }
-.dest-malaysia{ background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=80'); }
-.dest-ireland{ background-image:url('https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=900&q=80'); }
-.dest-netherlands{ background-image:url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=900&q=80'); }
-.dest-united-states{ background-image:url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80'); }
-.dest-new-zealand{ background-image:url('https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=900&q=80'); }
-.dest-canada{ background-image:url('https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=900&q=80'); }
-.dest-georgia{ background-image:url('https://commons.wikimedia.org/wiki/Special:Redirect/file/City_skyline%2C_Tbilisi_-_panoramio.jpg?width=900'); }
+.dest-malta{ background-image:url('../img/backgrounds/dest-malta.jpg'); }
+.dest-malaysia{ background-image:url('../img/backgrounds/dest-malaysia.jpg'); }
+.dest-ireland{ background-image:url('../img/backgrounds/dest-ireland.jpg'); }
+.dest-netherlands{ background-image:url('../img/backgrounds/dest-netherlands.jpg'); }
+.dest-united-states{ background-image:url('../img/backgrounds/dest-united-states.jpg'); }
+.dest-new-zealand{ background-image:url('../img/backgrounds/dest-new-zealand.jpg'); }
+.dest-canada{ background-image:url('../img/backgrounds/dest-canada.jpg'); }
+.dest-georgia{ background-image:url('../img/backgrounds/dest-georgia.jpg'); }
 
 /* country card — photo on top with a flag, white body beneath.
    Replaces the text-over-photo treatment: the description needs a solid
@@ -637,9 +637,9 @@ body.js-reveal .stagger.in > *:nth-child(8){ transition-delay:.46s; }
 
 /* ---------- imagery ---------- */
 .image-card{ background-size:cover; background-position:center; border-radius:var(--radius); position:relative; overflow:hidden; box-shadow:0 22px 54px rgba(10,10,10,.12); }
-.img-students{ background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80'); }
-.img-campus{ background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80'); }
-.img-meeting{ background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80'); }
+.img-students{ background-image:url('../img/backgrounds/students.jpg'); }
+.img-campus{ background-image:url('../img/backgrounds/campus.jpg'); }
+.img-meeting{ background-image:url('../img/backgrounds/meeting.jpg'); }
 .stat-plate{ position:absolute; left:-22px; bottom:-22px; background:var(--ink); color:#fff; padding:22px 26px; max-width:250px; z-index:2; border-radius:6px; }
 @media (max-width:980px){ .stat-plate{ position:relative; left:0; bottom:0; margin-top:16px; max-width:none; } }
 @media (max-width:640px){ .container{ padding:0 20px; } }
