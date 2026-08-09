@@ -24,8 +24,8 @@
   var destinations = [
     {
       slug: 'malta', name: 'Malta', tag: 'Direct collaborations', confirmed: true,
-      flag: '🇲🇹', intro: 'Seven institutions under direct collaborations, with English-taught programmes inside the EU.',
-      blurb: 'Our largest group of direct university collaborations. English-taught programmes inside the EU, with seven named institutions across the island.',
+      flag: '🇲🇹', intro: 'Seven direct partner institutions, English-taught programmes inside the EU.',
+      blurb: 'Our largest group of direct university collaborations. English-taught programmes inside the EU, with seven partner institutions across the island.',
       notes: {
         visa: 'National (long-stay) student visa. Requirements and processing times vary — our counsellors advise per institution.',
         cost: 'Approx. EUR 7,000 – 10,000 per year outside tuition; varies by city and accommodation type.',
@@ -81,8 +81,8 @@
 
     {
       slug: 'new-zealand', name: 'New Zealand', tag: 'Direct collaborations', confirmed: true,
-      flag: '🇳🇿', intro: 'Two Auckland institutions under direct collaborations, with strong post-study work pathways.',
-      blurb: 'Two Auckland institutions under direct collaborations, plus wider access through our authorised recruitment partnerships for New Zealand.',
+      flag: '🇳🇿', intro: 'Two direct partner institutions in Auckland, with strong post-study work pathways.',
+      blurb: 'Two direct partner institutions in Auckland, plus wider access through our authorised recruitment partnership for New Zealand.',
       notes: {
         visa: 'Fee-paying student visa. Evidence of funds and an offer of place are required.',
         cost: 'Approx. NZD 20,000 – 25,000 per year outside tuition; Auckland sits at the higher end.',
@@ -145,7 +145,7 @@
     },
 
     // Destinations reached through authorised recruitment partnerships.
-    // No named direct collaboration institutions in the source document.
+    // No named direct partner institutions in the source document.
     {
       slug: 'ireland', name: 'Ireland', tag: 'Recruitment partnerships', confirmed: true, network: true,
       flag: '🇮🇪', intro: 'English-speaking EU destination reached through our authorised recruitment network.',
