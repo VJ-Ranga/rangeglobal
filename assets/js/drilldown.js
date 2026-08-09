@@ -46,6 +46,7 @@
 
     var unis = d.universities || [];
     var listHtml;
+    var listTitle = unis.length ? 'Direct collaborations in ' + esc(d.name) : 'Institutions in ' + esc(d.name);
     if (unis.length) {
       listHtml = '<ul class="row-list">' + unis.map(function (u) {
         return '<li><div class="row-item">' +
@@ -53,10 +54,15 @@
           '<small>' + esc(u.city) + '</small><small>' + esc(u.type) + '</small></span>' +
           officialLink(u) + '</div></li>';
       }).join('') + '</ul>';
+    } else if (d.network && d.tag === 'Recruitment partnerships') {
+      listTitle = 'Global recruitment partnerships';
+      listHtml = '<div class="placeholder-note">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>' +
+        '<span>No named direct collaboration institutions in ' + esc(d.name) + ' are listed in the source document. This destination is reached through our authorised global recruitment partnerships, and we will match you to institutions in the wider network.</span></div>';
     } else {
       listHtml = '<div class="placeholder-note">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>' +
-        '<span>No named direct partner institutions in ' + esc(d.name) + ' yet. This destination is reached through our authorised global recruitment partnerships — talk to us and we will match you to institutions in our wider network.</span></div>';
+        '<span>No named direct collaboration institutions in ' + esc(d.name) + ' are listed in the source document yet. Talk to us and we will check current institution options for your study goals.</span></div>';
     }
 
     set('dd-body',
@@ -65,7 +71,7 @@
           '<div>' +
             '<div class="eyebrow">Overview</div>' +
             '<p class="lead" style="margin-bottom:34px;">' + esc(d.blurb) + '</p>' +
-            '<div class="eyebrow">Universities in ' + esc(d.name) + '</div>' +
+            '<div class="eyebrow">' + listTitle + '</div>' +
             listHtml +
           '</div>' +
           '<aside class="dd-aside">' +
