@@ -84,7 +84,7 @@
   function renderDestinationIndex() {
     var host = el('dd-destinations');
     if (!host) return;
-    host.innerHTML = D.destinations.map(function (d) {
+    host.innerHTML = D.destinations.filter(function (d) { return d.universities.length; }).map(function (d) {
       var photoCls = d.needsPhoto ? 'country-photo no-photo' : 'country-photo dest-' + esc(d.slug);
       return '<a class="country-card" href="destination.html?c=' + esc(d.slug) + '">' +
         '<div class="' + photoCls + '">' +
